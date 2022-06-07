@@ -21,7 +21,7 @@ public class PlayerCombat : MonoBehaviour
     }
 
     internal void MeleeAttack() {
-        player.ani.SetTrigger("Attack");
+        //player.ani.SetTrigger("Attack");
 
         //detects enemies in range of atk & collects them in an array
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);

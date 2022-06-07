@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     internal void HorizontalMovement(float moveHorizontal, bool isJumping) {
         if (isJumping) {
-            player.body.AddForce(new Vector2(moveHorizontal * moveSpeed/5, 0f), ForceMode2D.Impulse);
+            player.body.AddForce(new Vector2(moveHorizontal * moveSpeed/3, 0f), ForceMode2D.Impulse);
          } else {
             player.body.AddForce(new Vector2(moveHorizontal * moveSpeed, 0f), ForceMode2D.Impulse);
          }
