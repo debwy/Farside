@@ -17,6 +17,14 @@ public class Enemy : MonoBehaviour, IEnemy
     internal bool died;
 
     public Healthbar healthbar;
+    public LayerMask playerLayer;
+
+    [SerializeField]
+    private Collider2D col;
+
+    private bool canContact;
+    public float contactCooldown = 0.5f;
+    private float lastContact = -100;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +40,15 @@ public class Enemy : MonoBehaviour, IEnemy
         currentHealth = maxHealth;
         died = false;
         healthbar.SetMaxHealth(maxHealth);
+        canContact = true;
+    }
+
+    //might shift this to specific enemy
+    void Update()
+    {
+        if (canContact) {
+            NoTouchy();
+        }
     }
 
     public void Flip() {
@@ -78,6 +95,15 @@ public class Enemy : MonoBehaviour, IEnemy
 
         //GetComponent<Collider2D>().enabled = false;
         Destroy(gameObject);
+    }
+
+    //might want to split this off later
+    private void NoTouchy() {
+        if (col.IsTouchingLayers(playerLayer) && Time.time >= (lastContact + contactCooldown)) {
+            lastContact = Time.time;
+            Debug.Log("bonk");
+            GameObject.Find("Player").GetComponent<PlayerMain>().TakeDamage(attackDamage);
+        }
     }
 
     /*

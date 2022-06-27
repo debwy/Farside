@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 485451357138782230}
   - component: {fileID: 485451357138782229}
   m_Layer: 5
-  m_Name: Health Bar
+  m_Name: Health Bar Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

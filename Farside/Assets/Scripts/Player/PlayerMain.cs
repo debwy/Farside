@@ -20,6 +20,9 @@ public class PlayerMain : MonoBehaviour
     internal bool enableMovement;
     internal bool enableActions;
 
+    [SerializeField]
+    internal Healthbar healthbar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,6 +100,7 @@ public class PlayerMain : MonoBehaviour
 
     private void Flip() {
         transform.Rotate(0f, 180f, 0f);
+        healthbar.transform.Rotate(0f, 180f, 0f);
     }
 
     public int GetShotAttackDmg() {

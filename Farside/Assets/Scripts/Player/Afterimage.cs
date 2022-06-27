@@ -19,15 +19,15 @@ public class Afterimage : MonoBehaviour
     private SpriteRenderer sr;
     private SpriteRenderer playersr;
 
-    [SerializeField]
-    private PlayerMain player;
+    //[SerializeField]
+    //private PlayerMain player;
 
     private Color color;
 
     private void OnEnable() 
     {
         sr = GetComponent<SpriteRenderer>();
-        playerTransform = player.transform;
+        playerTransform = GameObject.Find("Player").GetComponent<PlayerMain>().transform;
         playersr = playerTransform.GetComponent<SpriteRenderer>();
 
         alpha = alphaSet;

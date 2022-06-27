@@ -211,6 +211,10 @@ MonoBehaviour:
   attackDamage: 10
   isInitiallyFacingRight: 1
   healthbar: {fileID: 7973881211820722887}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  col: {fileID: 8406138849161497765}
 --- !u!114 &8406138849161497757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,12 +231,8 @@ MonoBehaviour:
   groundRay: {fileID: 8406138847912521427}
   groundedValue: 1.5
   wallRay: {fileID: 8406138847593916010}
+  wallValue: 0.7
   speed: 0.4
-  bodyCollider: {fileID: 8406138849161497765}
-  groundChecker: {fileID: 0}
-  groundLayers:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!61 &8406138849161497765
 BoxCollider2D:
   m_ObjectHideFlags: 0

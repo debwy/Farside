@@ -22,6 +22,7 @@ public class PlayerCombat : MonoBehaviour
     void Start()
     {
         currentHealth = totalHealth;
+        player.healthbar.SetMaxHealth(totalHealth);
         shotDmgDivide = 5;
     }
 
@@ -49,6 +50,8 @@ public class PlayerCombat : MonoBehaviour
         
         if (currentHealth > 0) {
             currentHealth -= damage;
+
+            player.healthbar.SetHealth(currentHealth);
 
             //play hurt animation
             player.ani.SetTrigger("Hurt");
