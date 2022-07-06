@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyPatrol : MonoBehaviour
 {
     [SerializeField]
-    Enemy enemy;
+    Slime enemy;
 
     public GameObject groundRay;
     private RaycastHit2D hitGround;
@@ -18,6 +18,7 @@ public class EnemyPatrol : MonoBehaviour
     public float speed = 0.5f;
 
     internal bool isPatrolling;
+    private bool isWallOrEnemy;
 
     void Start()
     {
@@ -28,7 +29,7 @@ public class EnemyPatrol : MonoBehaviour
     {
         Raycasting();
 
-        if (isPatrolling && !enemy.died) {
+        if (isPatrolling && !enemy.IsDead()) {
             Patrol();
         }
 
@@ -38,7 +39,7 @@ public class EnemyPatrol : MonoBehaviour
         hitGround = Physics2D.Raycast (groundRay.transform.position, -Vector2.up);
         Debug.DrawRay (groundRay.transform.position, -Vector2.up * hitGround.distance, Color.red);
 
-        if (enemy.isFacingRight) {
+        if (enemy.IsFacingRight()) {
             hitWall = Physics2D.Raycast (wallRay.transform.position, Vector2.right);
             Debug.DrawRay (wallRay.transform.position, Vector2.right * hitWall.distance, Color.blue);
         } else {
@@ -58,8 +59,8 @@ public class EnemyPatrol : MonoBehaviour
     private void Patrol() {
         if (HittingWall() || !Grounded()) {
             PatrolFlip();
-        } else {
-            enemy.body.AddForce(new Vector2(speed * enemy.faceRightInt, 0f), ForceMode2D.Impulse);
+        } else if (enemy.Body() != null) {
+            enemy.Body().AddForce(new Vector2(speed * enemy.faceRightInt, 0f), ForceMode2D.Impulse);
             //enemy.body.velocity = new Vector2(speed, enemy.body.velocity.y);
             //(moveHorizontal * moveSpeed/3, 0f)
         }
@@ -76,7 +77,8 @@ public class EnemyPatrol : MonoBehaviour
 
     internal bool HittingWall() {
         //Debug.Log(hitWall.distance);
-        return hitWall.distance < wallValue && hitWall.distance > 0;
+
+        return hitWall.distance < wallValue && hitWall.distance > 0 && isWallOrEnemy;
         //bodyCollider.IsTouchingLayers(groundLayers);
     }
 

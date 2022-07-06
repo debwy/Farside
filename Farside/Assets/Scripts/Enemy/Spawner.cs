@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public Enemy enemy;
+    public GameObject enemy;
 
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(enemy, transform.position, transform.rotation);
+        if (enemy != null) {
+            Instantiate(enemy, transform.position, transform.rotation);
+        }
     }
 }

@@ -183,10 +183,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4501130332680912880}
-  moveSpeed: 1.94
+  moveSpeed: 1.5
   jumpForce: 30
-  dashTime: 0.05
-  dashSpeed: 50
+  dashTime: 0.005
+  dashSpeed: 35
   distanceBetweenImages: 0.1
   dashCooldown: 2.5
 --- !u!114 &4501130332680912885

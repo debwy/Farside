@@ -110,4 +110,8 @@ public class PlayerMain : MonoBehaviour
     public void Death() {
         combat.Instakill();
     }
+
+    public void GameOver() {
+        Loader.Load(Loader.Scene.MainMenu);
+    }
 }

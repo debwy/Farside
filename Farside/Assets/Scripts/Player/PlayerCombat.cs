@@ -42,7 +42,7 @@ public class PlayerCombat : MonoBehaviour
         //damages enemies
         foreach(Collider2D enemy in hitEnemies) {
             Debug.Log("Hit " + enemy.name);
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            enemy.GetComponent<IEnemy>().TakeDamage(attackDamage);
         }
     }
 
@@ -74,6 +74,12 @@ public class PlayerCombat : MonoBehaviour
         player.enabled = false;
 
         //TODO sends player to game over screen
+        StartCoroutine (SendingToGameOver());
+    }
+
+    private IEnumerator SendingToGameOver() {
+        yield return new WaitForSeconds(1);
+        player.GameOver();
     }
 
     internal void Instakill() {
