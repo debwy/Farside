@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0f81d3c6560aa434a834150272454dc4
+guid: 81efb78dbff862a4ba71d4f21a06c1eb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_0
+      name: Golem_DeathPartA_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 0
-        width: 29
-        height: 17
+        x: 19
+        y: 82
+        width: 23
+        height: 25
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a30b0b7ee0e4acb4ca1e1f04d3780fb1
-      internalID: 1914278877
+      spriteID: 030b547ffd81b8149b6762a90083aa27
+      internalID: -25182958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_1
+      name: Golem_DeathPartA_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 0
-        width: 29
-        height: 18
+        x: 80
+        y: 81
+        width: 22
+        height: 24
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b46834fe8ff3f6d478bd23deb1f6d189
-      internalID: -617859129
+      spriteID: 49017f9baae38fc49a863a07cdde8f08
+      internalID: -810492753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_2
+      name: Golem_DeathPartA_2
       rect:
         serializedVersion: 2
-        x: 67
-        y: 0
-        width: 29
-        height: 19
+        x: 144
+        y: 80
+        width: 22
+        height: 22
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56b34e49681b3ad4fb11e8b5e45c5419
-      internalID: -453511238
+      spriteID: 6980595c547b59446a364e123dc75c1e
+      internalID: -1348690506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_3
+      name: Golem_DeathPartA_3
       rect:
         serializedVersion: 2
-        x: 99
-        y: 0
-        width: 29
-        height: 17
+        x: 209
+        y: 81
+        width: 22
+        height: 22
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,8 +193,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07e32116f346ce34bb39b0a34317ce30
-      internalID: 763709484
+      spriteID: bed6290cfa4cac74e898bb1525297fac
+      internalID: 540330404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Golem_DeathPartA_4
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 18
+        width: 21
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf5506e88ce08f4478e523bf30173660
+      internalID: 786601876
       vertices: []
       indices: 
       edges: []
@@ -210,10 +231,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle_1: -617859129
-      Idle_3: 763709484
-      Idle_0: 1914278877
-      Idle_2: -453511238
+      Golem_DeathPartA_1: -810492753
+      Golem_DeathPartA_0: -25182958
+      Golem_DeathPartA_4: 786601876
+      Golem_DeathPartA_2: -1348690506
+      Golem_DeathPartA_3: 540330404
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
