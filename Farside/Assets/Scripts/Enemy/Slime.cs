@@ -14,6 +14,7 @@ public class Slime : MonoBehaviour, IEnemy
     public bool isInitiallyFacingRight = true;
     internal bool isFacingRight;
     internal int faceRightInt;
+    public bool abilityToTakeRangedDamage = true;
 
     internal bool died;
 
@@ -72,6 +73,16 @@ public class Slime : MonoBehaviour, IEnemy
         if(currentHealth <= 0) {
             Die();
         }
+    }
+
+    public void TakeRangedDamage(int damage) {
+        if (abilityToTakeRangedDamage) {
+            TakeDamage(damage);
+        }
+    }
+
+    public void Death() {
+        TakeDamage(maxHealth);
     }
 
     public void Die() {

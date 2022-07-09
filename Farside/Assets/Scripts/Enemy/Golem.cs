@@ -64,6 +64,14 @@ public class Golem : MonoBehaviour, IEnemy
 
     }
 
+    public void TakeRangedDamage(int damage) {
+
+    }
+
+    public void Death() {
+        TakeDamage(maxHealth);
+    }
+
     public void Die() {
 
     }

@@ -37,11 +37,12 @@ public class PlayerMain : MonoBehaviour
     void Update()
     {
         //added for freezing player movement when talking to NPC
-        if (DialogueManager.GetInstance().dialogueIsPlaying)
-        {
+        if (DialogueManager.GetInstance().dialogueIsPlaying) {
+            ani.SetBool("Dialogue", true);
             return;
+        } else {
+            ani.SetBool("Dialogue", false);
         }
-        //end of my addition
 
         if (enableActions) {
             PlayerActions();

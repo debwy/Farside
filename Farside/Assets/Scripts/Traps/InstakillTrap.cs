@@ -17,13 +17,14 @@ public class InstakillTrap : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Player") {
-
-            GameObject player = collision.gameObject;
-
-            Debug.Log($"{name} Triggered");
             ani.SetTrigger("Trigger");
-
+            GameObject player = collision.gameObject;
             player.GetComponent<PlayerMain>().Death();
+
+        } else if (collision.tag == "Enemy") {
+            ani.SetTrigger("Trigger");
+            GameObject enemy = collision.gameObject;
+            enemy.GetComponent<IEnemy>().Death();
         }
     }
 }

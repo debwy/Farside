@@ -381,6 +381,7 @@ MonoBehaviour:
   maxHealth: 30
   attackDamage: 10
   isInitiallyFacingRight: 1
+  abilityToTakeRangedDamage: 0
   healthbar: {fileID: 1396137409177098189}
   playerLayer:
     serializedVersion: 2
