@@ -36,6 +36,13 @@ public class PlayerMain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //added for freezing player movement when talking to NPC
+        if (DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            return;
+        }
+        //end of my addition
+
         if (enableActions) {
             PlayerActions();
         }
@@ -59,6 +66,13 @@ public class PlayerMain : MonoBehaviour
     }
 
     void FixedUpdate() {
+
+        //added for freezing player movement when talking to NPC
+        if (DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            return;
+        }
+        //end of my addition
 
         if (enableMovement) {
             PlayerMovement();
