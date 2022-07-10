@@ -31,7 +31,7 @@ public class DialogueTrigger : MonoBehaviour
             //here original code was if (InputManager.GetInstance().GetInteractPressed()), but we
             //not using the inputmanager singleton class thingy so i directly check for press E
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
             }
@@ -43,7 +43,6 @@ public class DialogueTrigger : MonoBehaviour
     }
 
     //determine when player collider enters NPC range
-   
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player")
