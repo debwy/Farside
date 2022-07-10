@@ -1,29 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Golem : MonoBehaviour, IEnemy
 {
-    public int maxHealth = 100;
+    public float speed = 0.5f;
+    public int maxHealth = 200;
     internal int currentHealth;
     internal Rigidbody2D body;
     internal Animator ani;
 
-    public int attackDamage = 10;
-    public bool isInitiallyFacingRight = true;
-    internal bool isFacingRight;
-    internal int faceRightInt;
+    public int attackDamage = 30;
+    public bool isFacingRight = true;
+    private int faceRightInt;
 
+    private bool ableToMove = true;
     internal bool died;
+    internal bool isPlayerInAggroRange = false;
+    internal Transform aggroTarget;
 
     public Healthbar healthbar;
     public LayerMask playerLayer;
+
+    [SerializeField]
+    private Collider2D col;
+    [SerializeField]
+    private GameObject launcher;
+
+    private bool canContact;
+    public float contactCooldown = 0.5f;
+    private float lastContact = -100;
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
-        isFacingRight = isInitiallyFacingRight;
         if (!isFacingRight) {
             faceRightInt = -1;
         } else {
@@ -32,52 +44,191 @@ public class Golem : MonoBehaviour, IEnemy
         currentHealth = maxHealth;
         died = false;
         healthbar.SetMaxHealth(maxHealth);
+        initialLocation = initialLocationMarker.transform;
+        canContact = true;
     }
 
     public GameObject obstacleRay;
     private RaycastHit2D hitObs;
-    public float meleeValue = 0.3f;
+    public float meleeRange = 2;
+
+    [SerializeField]
+    public GameObject initialLocationMarker;
+    private Transform initialLocation;
 
     void Update()
     {
-        
+
+        hitObs = Physics2D.Raycast (obstacleRay.transform.position, faceRightInt * Vector2.right);
+        Debug.DrawRay (obstacleRay.transform.position, faceRightInt * Vector2.right * hitObs.distance, Color.red);
+
+        if (isPlayerInAggroRange && !died) {
+            SetAggro();
+            ani.SetBool("Idle", false);
+            if (canContact) {
+                NoTouchy();
+            }
+            AttackDecision();
+        } else if (!died) {
+            if (currentHealth != maxHealth) {
+                ani.SetBool("Idle", true);
+                ResetHealth();
+            } else if (aggroTarget != null) {
+                ani.SetBool("Idle", true);
+                aggroTarget = null;
+            } else if (Math.Abs(transform.position.x - initialLocation.transform.position.x) > 1f) {
+                RunTowards(initialLocation);
+            }
+        }
     }
 
     //called upon seeing player in front via raycast (compare tag)
     internal void AttackDecision() {
-        if (hitObs.distance <= 0.3f) {
-            MeleeAttack();
+        if (hitObs.collider != null && hitObs.collider.tag == "Player") {
+            if (hitObs.distance <= meleeRange) {
+                MeleeAttack();
+            } else {
+                RangedAttack();
+            }
         } else {
-            RangedAttack();
+            if (body != null) {
+                RunTowards(aggroTarget);
+            }
         }
     }
 
-    internal void MeleeAttack() {
-
+    //when player not in "sight" or when cooldown for abilities up
+    private void RunTowards(Transform targetLocation) {
+        if (targetLocation.position.x < transform.position.x) {
+            if (isFacingRight) {
+                Flip();
+            }
+        } else {
+            if (!isFacingRight) {
+                Flip();
+            }
+        }
+        if (ableToMove) {
+            body.AddForce(new Vector2(speed * faceRightInt, 0f), ForceMode2D.Impulse);
+        }
     }
 
-    internal void RangedAttack() {
-        
+    [SerializeField] private GameObject meleeEffect;
+    [SerializeField] private GameObject enemyProjectile;
+    private Vector3 offset = new Vector3(30f, -20f, 0f);
+    private float lastMelee = -100;
+    public float meleeCooldown = 6f;
+    private float lastRanged = -100;
+    public float rangedCooldown = 5f;
+
+    //might want to add atk indicator in the future
+    private void MeleeAttack() {
+        if (Time.time < (lastMelee + meleeCooldown)) {
+            RangedAttack();
+        } else {
+            Stop(2f);
+            ani.SetTrigger("Melee");
+            lastMelee = Time.time;
+            ableToMove = true;
+        }
+    }
+
+    //to be timed with melee animation
+    public void SpawnMeleeAttack() {
+        Instantiate(meleeEffect, transform.position, transform.rotation);
+    }
+
+    private void Stop(float toWait) {
+        ableToMove = false;
+        body.velocity = Vector3.zero;
+        body.angularVelocity = 0f;
+        Wait(toWait);
+    }
+
+    private IEnumerator Wait(float toWait) {
+        yield return new WaitForSeconds(toWait);
+    }
+
+    private void RangedAttack() {
+        if (Time.time < (lastRanged + rangedCooldown)) {
+            RunTowards(aggroTarget);
+        } else {
+            Stop(0.2f);
+            ani.SetTrigger("Ranged");
+            lastRanged = Time.time;
+            Instantiate(enemyProjectile, launcher.transform.position, launcher.transform.rotation);
+            ableToMove = true;
+        }
+    }
+
+    private void SetAggro() {
+        aggroTarget = GameObject.Find("Player").transform;
+    }
+    
+    public void NotifyAggro(bool input) {
+        isPlayerInAggroRange = input;
     }
 
     public void TakeDamage(int damage) {
-
+        if (currentHealth > 0) {
+            currentHealth -= damage;
+            healthbar.SetHealth(currentHealth);
+            ani.SetTrigger("Hit");
+        }
+        if(currentHealth <= 0) {
+            Die();
+        }
     }
 
     public void TakeRangedDamage(int damage) {
+        //even if sniped, enemy auto heals quicker
+        //does the same as takeDamage but no animation
+        if (currentHealth > 0) {
+            currentHealth -= damage;
+            healthbar.SetHealth(currentHealth);
+        }
+        if(currentHealth <= 0) {
+            Die();
+        }
+    }
 
+    private void Flip() {
+        transform.Rotate(0f, 180f, 0f);
+        healthbar.transform.Rotate(0f, 180f, 0f);
+        isFacingRight = !isFacingRight;
+        faceRightInt *= -1;
+    }
+
+    internal void ResetHealth() {
+        currentHealth = maxHealth;
+    }
+
+    private void NoTouchy() {
+        if (col.IsTouchingLayers(playerLayer) && Time.time >= (lastContact + contactCooldown)) {
+            lastContact = Time.time;
+            GameObject.Find("Player").GetComponent<PlayerMain>().TakeDamage(attackDamage/5);
+        }
     }
 
     public void Death() {
         TakeDamage(maxHealth);
     }
 
-    public void Die() {
-
-    }
-
     public bool IsDead() {
         return died;
+    }
+
+    public void Die() {
+        died = true;
+        canContact = false;
+        body.velocity = Vector2.zero;
+        body.angularVelocity = 0;
+        ani.SetBool("Died", true);
+    }
+
+    public void DespawnEnemy() {
+        this.enabled = false;
+        Destroy(gameObject);
     }
 
 }

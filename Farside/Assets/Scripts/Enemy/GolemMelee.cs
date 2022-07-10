@@ -2,35 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosion : MonoBehaviour
+public class GolemMelee : MonoBehaviour
 {
 
-    public int attackDamage = 30;
+    public int attackDamage = 10;
     public LayerMask playerLayer;
     public Collider2D col;
 
-    private bool isExploding = true;
+    private bool isDamaging = true;
 
     void Update()
     {
-        if (isExploding) {
-            Explode();
+        if (isDamaging) {
+            MeleeAttacking();
         }
     }
 
-    private void Explode() {
+    private void MeleeAttacking() {
         if (col.IsTouchingLayers(playerLayer)) {
             GameObject.Find("Player").GetComponent<PlayerMain>().TakeDamage(attackDamage);
-            NoMoreExplode();
+            NoMoreAttack();
         }
     }
 
-    public void NoMoreExplode() {
-        isExploding = false;
+    public void NoMoreAttack() {
+        isDamaging = false;
     }
 
-    public void Die() {
+    public void MeleeEnd() {
         this.enabled = false;
         Destroy(gameObject);
     }
+
 }

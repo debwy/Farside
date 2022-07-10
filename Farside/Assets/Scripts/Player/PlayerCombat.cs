@@ -15,6 +15,7 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
+    public LayerMask destructableLayers;
 
     public PlayerProjectile projectile;
     public Transform launcher;
@@ -35,13 +36,16 @@ public class PlayerCombat : MonoBehaviour
     }
 
     internal void MeleeAttack() {
-
         //detects enemies in range of atk & collects them in an array
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
         //damages enemies
         foreach(Collider2D enemy in hitEnemies) {
             enemy.GetComponent<IEnemy>().TakeDamage(attackDamage);
+        }
+
+        Collider2D[] hitObjects = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, destructableLayers);
+        foreach(Collider2D breakable in hitObjects) {
+            breakable.GetComponent<IBreakable>().Break();
         }
     }
 

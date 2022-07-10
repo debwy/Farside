@@ -12,6 +12,7 @@ public class NpcFacePlayer : MonoBehaviour
     private bool isFacingRight = true;
     private int rightInt;
     private bool isAbleToFlip = true;
+    private bool isCheckingForPlayer = false;
 
     void Start()
     {
@@ -22,23 +23,28 @@ public class NpcFacePlayer : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        hitObs = Physics2D.Raycast (obstacleRay.transform.position, -Vector2.up);
+        hitObs = Physics2D.Raycast (obstacleRay.transform.position, rightInt * Vector2.right);
         Debug.DrawRay (obstacleRay.transform.position, rightInt * Vector2.right * hitObs.distance, Color.red);
     
-        Debug.Log(hitObs.collider.name);
+        //Debug.Log(hitObs.collider.name);
 
         if (DialogueManager.GetInstance().dialogueIsPlaying) {
             isAbleToFlip = false;
         } else {
             isAbleToFlip = true;
         }
+
+        if (isCheckingForPlayer) {
+            if (hitObs.collider.tag != "Player" && isAbleToFlip) {
+                Flip();
+                StartCoroutine(Wait());
+            }
+        }
     }
 
     public void Flip() {
-        Debug.Log("Flipping");
         transform.Rotate(0f, 180f, 0f);
         isFacingRight = !isFacingRight;
         rightInt *= -1;
@@ -46,15 +52,18 @@ public class NpcFacePlayer : MonoBehaviour
 
     //prevents npc from partying if player is colliding but not in sight
     private IEnumerator Wait() {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Player") {
-            if (hitObs.collider.tag != "Player" && isAbleToFlip) {
-                Flip();
-                StartCoroutine(Wait());
-            }
+            isCheckingForPlayer = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision) {
+        if (collision.tag == "Player") {
+            isCheckingForPlayer = false;
         }
     }
 

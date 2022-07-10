@@ -223,6 +223,9 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
+  destructableLayers:
+    serializedVersion: 2
+    m_Bits: 256
   projectile: {fileID: 8534777559903604528, guid: 6e5285804ed538448a4c6eb44067c334, type: 3}
   launcher: {fileID: 4501130334291080414}
 --- !u!95 &4501130332680912887

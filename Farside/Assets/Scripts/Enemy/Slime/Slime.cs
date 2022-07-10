@@ -125,6 +125,10 @@ public class Slime : MonoBehaviour, IEnemy
         return died;
     }
 
+    public void NotifyAggro(bool input) {
+        //do nothing
+    }
+
     /*
     void OnTriggerEnter2D(Collider2D hit) {
         if (hit != null) {

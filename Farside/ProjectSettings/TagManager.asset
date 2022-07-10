@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - PlayerProjectile
   - Trap
+  - RangeMarker
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - UI
   - Enemy
   - Ground
-  - 
-  - 
+  - Destructable
+  - Indestructable
   - 
   - 
   - 
