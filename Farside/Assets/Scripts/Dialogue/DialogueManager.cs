@@ -7,6 +7,10 @@ using UnityEngine.EventSystems;
 
 public class DialogueManager : MonoBehaviour
 {
+    const string kAlphaCode = "<color=#00000000>";
+    const float kMaxTextTime = 0.02f;
+    public static int TextSpeed = 2;
+
     [Header("Params")]
     //[SerializeField] private float typingSpeed = 0.001f;
 
@@ -127,8 +131,14 @@ public class DialogueManager : MonoBehaviour
         continueIcon.SetActive(false);
         HideChoices();
 
-        canContinueToNextLine = false; 
+        canContinueToNextLine = false;
 
+        string originalText = line;
+        string displayedText = "";
+        int alphaIndex = 0;
+
+        //their 'CurrentText' is my 'line')
+        //their Text.text is my dialogueText.text
         foreach (char letter in line.ToCharArray())
         {
             //if player presses space/LMB, show full text immediately
@@ -138,8 +148,13 @@ public class DialogueManager : MonoBehaviour
                 break;
             }
             */
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(0.02f);
+            alphaIndex++;
+            dialogueText.text = originalText;
+            displayedText = dialogueText.text.Insert(alphaIndex, kAlphaCode);
+            dialogueText.text = displayedText;
+
+            //dialogueText.text += letter;
+            yield return new WaitForSeconds(kMaxTextTime / TextSpeed);
         }
 
         continueIcon.SetActive(true);
