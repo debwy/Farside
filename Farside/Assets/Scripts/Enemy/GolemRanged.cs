@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GolemRanged : MonoBehaviour, IBreakable
+public class GolemRanged : MonoBehaviour, IEnemyProjectile
 {
     public int attackDamage = 10;
+    public int parryDamage = 50;
     public int speed = 10;
     internal Rigidbody2D body;
+
+    private bool isParried = false;
 
     void Start()
     {
@@ -20,17 +23,29 @@ public class GolemRanged : MonoBehaviour, IBreakable
     }
 
     void OnTriggerEnter2D(Collider2D hit) {
-        if (hit != null) {
+        if (!isParried) {
             if (hit.gameObject.CompareTag("Player")) {
                 hit.GetComponent<PlayerMain>().TakeDamage(attackDamage);
             }
             if (!hit.gameObject.CompareTag("Enemy") && !hit.gameObject.CompareTag("EnemyProjectile") && !hit.gameObject.CompareTag("RangeMarker")) {
-                Break();
+                Destroy(gameObject);
+            }
+        } else {
+            if (hit.gameObject.CompareTag("Enemy")) {
+                hit.GetComponent<IEnemy>().TakeDamage(parryDamage);
+            }
+            if (!hit.gameObject.CompareTag("Player") && !hit.gameObject.CompareTag("PlayerProjectile") && !hit.gameObject.CompareTag("RangeMarker")) {
+                Destroy(gameObject);
             }
         }
     }
 
-    public void Break() {
-        Destroy(gameObject);
+    public void Flip() {
+        transform.Rotate(0f, 180f, 0f);
+    }
+
+    public void Parry() {
+        isParried = true;
+        Flip();
     }
 }

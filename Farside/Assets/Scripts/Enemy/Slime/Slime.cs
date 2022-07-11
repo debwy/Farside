@@ -75,6 +75,17 @@ public class Slime : MonoBehaviour, IEnemy
         }
     }
 
+    public void Heal(int healing) {
+        if (currentHealth < maxHealth) {
+            if (currentHealth + healing <= maxHealth) {
+                currentHealth += healing;
+            } else {
+                currentHealth = maxHealth;
+            }
+            healthbar.SetHealth(currentHealth);
+        }
+    }
+
     public void TakeRangedDamage(int damage) {
         if (abilityToTakeRangedDamage) {
             TakeDamage(damage);

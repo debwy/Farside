@@ -39,7 +39,9 @@ public class NpcFacePlayer : MonoBehaviour
         if (isCheckingForPlayer) {
             if (hitObs.collider.tag != "Player" && isAbleToFlip) {
                 Flip();
-                StartCoroutine(Wait());
+                isAbleToFlip = false;
+                StartCoroutine(Wait(3f));
+                isAbleToFlip = true;
             }
         }
     }
@@ -51,8 +53,8 @@ public class NpcFacePlayer : MonoBehaviour
     }
 
     //prevents npc from partying if player is colliding but not in sight
-    private IEnumerator Wait() {
-        yield return new WaitForSeconds(0.5f);
+    private IEnumerator Wait(float waiting) {
+        yield return new WaitForSeconds(waiting);
     }
 
     void OnTriggerEnter2D(Collider2D collision) {

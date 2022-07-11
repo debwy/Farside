@@ -9,14 +9,14 @@ public class AggroNotifier : MonoBehaviour
     public GameObject enemy;
 
     void OnTriggerEnter2D(Collider2D hit) {
-        if (hit.tag == "Player") {
+        if (hit.tag == "Player" && enemy != null) {
             Debug.Log("Enemy aggro'd");
             enemy.GetComponent<IEnemy>().NotifyAggro(true);
         }
     }
 
     void OnTriggerExit2D(Collider2D hit) {
-        if (hit.tag == "Player") {
+        if (hit.tag == "Player" && enemy != null) {
             enemy.GetComponent<IEnemy>().NotifyAggro(false);
         }
     }

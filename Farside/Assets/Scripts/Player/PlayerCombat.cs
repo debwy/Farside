@@ -8,22 +8,21 @@ public class PlayerCombat : MonoBehaviour
     internal PlayerMain player;
 
     public int attackDamage;
-    public int totalHealth;
+    public int maxHealth;
     private int currentHealth;
     public int shotDmgDivide;
 
     public Transform attackPoint;
     public float attackRange = 0.5f;
-    public LayerMask enemyLayers;
-    public LayerMask destructableLayers;
+    public LayerMask attackableLayers;
 
     public PlayerProjectile projectile;
     public Transform launcher;
 
     void Start()
     {
-        currentHealth = totalHealth;
-        player.healthbar.SetMaxHealth(totalHealth);
+        currentHealth = maxHealth;
+        player.healthbar.SetMaxHealth(maxHealth);
         shotDmgDivide = 5;
     }
 
@@ -36,16 +35,19 @@ public class PlayerCombat : MonoBehaviour
     }
 
     internal void MeleeAttack() {
-        //detects enemies in range of atk & collects them in an array
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-        //damages enemies
-        foreach(Collider2D enemy in hitEnemies) {
-            enemy.GetComponent<IEnemy>().TakeDamage(attackDamage);
-        }
-
-        Collider2D[] hitObjects = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, destructableLayers);
-        foreach(Collider2D breakable in hitObjects) {
-            breakable.GetComponent<IBreakable>().Break();
+        //detects items in range of atk & collects them in an array
+        Collider2D[] hitThings = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, attackableLayers);
+        //calls specific methods for all
+        foreach(Collider2D item in hitThings) {
+            if (item.CompareTag("Enemy")) {
+                item.GetComponent<IEnemy>().TakeDamage(attackDamage);
+            } else if (item.CompareTag("Breakable")) {
+                item.GetComponent<IBreakable>().Break();
+            } else if (item.CompareTag("Interactable")) {
+                item.GetComponent<IInteractable>().InteractViaAttack();
+            } else if (item.CompareTag("EnemyProjectile")) {
+                item.GetComponent<IEnemyProjectile>().Parry();
+            }
         }
     }
 
@@ -64,6 +66,17 @@ public class PlayerCombat : MonoBehaviour
             player.enableActions = false;
             player.enableMovement = false;
             Die();
+        }
+    }
+
+    public void Heal(int healing) {
+        if (currentHealth < maxHealth) {
+            if (currentHealth + healing <= maxHealth) {
+                currentHealth += healing;
+            } else {
+                currentHealth = maxHealth;
+            }
+            player.healthbar.SetHealth(currentHealth);
         }
     }
 
@@ -86,7 +99,7 @@ public class PlayerCombat : MonoBehaviour
     }
 
     internal void Instakill() {
-        TakeDamage(totalHealth);
+        TakeDamage(maxHealth);
     }
 
     void OnDrawGizmosSelected() {

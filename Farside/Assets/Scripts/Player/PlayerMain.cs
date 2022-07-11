@@ -113,6 +113,10 @@ public class PlayerMain : MonoBehaviour
         combat.TakeDamage(attackDamage);
     }
 
+    public void Heal(int healing) {
+        combat.Heal(healing);
+    }
+
     private void Flip() {
         transform.Rotate(0f, 180f, 0f);
         healthbar.transform.Rotate(0f, 180f, 0f);

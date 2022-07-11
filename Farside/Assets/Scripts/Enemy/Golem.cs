@@ -126,7 +126,7 @@ public class Golem : MonoBehaviour, IEnemy
         if (Time.time < (lastMelee + meleeCooldown)) {
             RangedAttack();
         } else {
-            Stop(2f);
+            Stop(1f);
             ani.SetTrigger("Melee");
             lastMelee = Time.time;
             ableToMove = true;
@@ -142,7 +142,7 @@ public class Golem : MonoBehaviour, IEnemy
         ableToMove = false;
         body.velocity = Vector3.zero;
         body.angularVelocity = 0f;
-        Wait(toWait);
+        StartCoroutine(Wait(toWait));
     }
 
     private IEnumerator Wait(float toWait) {
@@ -192,6 +192,17 @@ public class Golem : MonoBehaviour, IEnemy
         }
     }
 
+    public void Heal(int healing) {
+        if (currentHealth < maxHealth) {
+            if (currentHealth + healing <= maxHealth) {
+                currentHealth += healing;
+            } else {
+                currentHealth = maxHealth;
+            }
+            healthbar.SetHealth(currentHealth);
+        }
+    }
+
     private void Flip() {
         transform.Rotate(0f, 180f, 0f);
         healthbar.transform.Rotate(0f, 180f, 0f);
@@ -228,6 +239,7 @@ public class Golem : MonoBehaviour, IEnemy
 
     public void DespawnEnemy() {
         this.enabled = false;
+        Stop(3f);
         Destroy(gameObject);
     }
 

@@ -10,4 +10,5 @@ public interface IEnemy
     void Die(); //ability to die (usually paired with despawn method)
     bool IsDead(); //returns whether enemy is dead (for other scripts, etc. patrol)
     void NotifyAggro(bool input);
+    void Heal(int healing);
 }
