@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMain : MonoBehaviour
+public class PlayerMain : MonoBehaviour, IDataPersistence
 {
     [SerializeField]
     internal PlayerInput input;
@@ -133,4 +133,15 @@ public class PlayerMain : MonoBehaviour
     public void GameOver() {
         Loader.Load(Loader.Scene.MainMenu);
     }
+
+    public void LoadData(GameData data) {
+        combat.Load(data);
+        this.transform.position = data.playerPosition;
+    }
+
+    public void SaveData(GameData data) {
+        combat.Save(data);
+        data.playerPosition = this.transform.position;
+    }
+
 }

@@ -145,7 +145,7 @@ public class Golem : MonoBehaviour, IEnemy
         StartCoroutine(Wait(toWait));
     }
 
-    private IEnumerator Wait(float toWait) {
+    public IEnumerator Wait(float toWait) {
         yield return new WaitForSeconds(toWait);
     }
 

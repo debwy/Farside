@@ -7,13 +7,13 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField]
     internal PlayerMain player;
 
-    public int attackDamage;
-    public int maxHealth;
-    private int currentHealth;
-    public int shotDmgDivide;
+    public int attackDamage = 10;
+    public int maxHealth = 100;
+    private int currentHealth = 100;
+    public int shotDmgDivide = 5;
 
     public Transform attackPoint;
-    public float attackRange = 0.5f;
+    public float attackRange = 1.15f;
     public LayerMask attackableLayers;
 
     public PlayerProjectile projectile;
@@ -21,9 +21,8 @@ public class PlayerCombat : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
         player.healthbar.SetMaxHealth(maxHealth);
-        shotDmgDivide = 5;
+        player.healthbar.SetHealth(currentHealth);
     }
 
     internal void Shoot() {
@@ -108,5 +107,19 @@ public class PlayerCombat : MonoBehaviour
         } else {
             Gizmos.DrawWireSphere(attackPoint.position, attackRange);
         }
+    }
+
+    internal void Load(GameData data) {
+        this.attackDamage = data.attackDamage;
+        this.maxHealth = data.maxHealth;
+        this.currentHealth = data.currentHealth;
+        this.shotDmgDivide = data.shotDmgDivide;
+    }
+
+    internal void Save(GameData data) {
+        data.attackDamage = this.attackDamage;
+        data.maxHealth = this.maxHealth;
+        data.currentHealth = this.currentHealth;
+        data.shotDmgDivide = this.shotDmgDivide;
     }
 }

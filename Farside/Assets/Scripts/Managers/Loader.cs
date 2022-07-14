@@ -9,18 +9,27 @@ public static class Loader
     public enum Scene {
         MainMenu,
         Loading,
-        Map1
+        Map1,
+        Map1a
     }
 
     public static void Load(Scene scene) {
-        //SceneManager.LoadScene(Scene.Loading.ToString());
-        SceneManager.LoadScene(scene.ToString());
+        SceneManager.LoadSceneAsync(scene.ToString());
     }
+
+    /*
+    public static string CurrentScene() {
+        return Scene.name;
+    }
+    */
 }
 
 
 /*
 --- not in use ---
+
+//SceneManager.LoadScene(Scene.Loading.ToString());
+
 public static LevelManager instance;
 
     [SerializeField]

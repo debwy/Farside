@@ -53,7 +53,7 @@ public class NpcFacePlayer : MonoBehaviour
     }
 
     //prevents npc from partying if player is colliding but not in sight
-    private IEnumerator Wait(float waiting) {
+    public IEnumerator Wait(float waiting) {
         yield return new WaitForSeconds(waiting);
     }
 
