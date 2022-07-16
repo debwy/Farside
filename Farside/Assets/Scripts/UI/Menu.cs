@@ -14,6 +14,8 @@ public class Menu : MonoBehaviour
     }
 
     public void SetFirstSelected(Button firstSelectedButton) {
-        firstSelectedButton.Select();
+        if (firstSelectedButton != null) {
+            firstSelectedButton.Select();
+        }
     }
 }

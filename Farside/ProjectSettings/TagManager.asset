@@ -12,6 +12,7 @@ TagManager:
   - EnemyProjectile
   - Interactable
   - Breakable
+  - SceneTransition
   layers:
   - Default
   - TransparentFX

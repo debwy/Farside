@@ -131,17 +131,25 @@ public class PlayerMain : MonoBehaviour, IDataPersistence
     }
 
     public void GameOver() {
-        Loader.Load(Loader.Scene.MainMenu);
+        DataPersistenceManager.instance.doNotSave = true;
+        Loader.LoadScene(Loader.Scenes.MainMenu);
     }
 
     public void LoadData(GameData data) {
         combat.Load(data);
-        this.transform.position = data.playerPosition;
+        if (DataPersistenceManager.instance.IsLoadedFromMenu()) {
+            this.transform.position = data.playerPosition;
+            DataPersistenceManager.instance.SetLoadedFromMenu(false);
+        } else {
+            Debug.Log("calling position player");
+            Loader.PositionPlayer(data.lastSavedScene);
+        }
     }
 
     public void SaveData(GameData data) {
         combat.Save(data);
         data.playerPosition = this.transform.position;
+        data.lastSavedScene = Loader.CurrentSceneIndex();
     }
 
 }

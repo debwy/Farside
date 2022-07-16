@@ -6,22 +6,44 @@ using UnityEngine.SceneManagement;
 
 public static class Loader
 {
-    public enum Scene {
+
+    public enum Scenes {
         MainMenu,
-        Loading,
         Map1,
         Map1a
     }
 
-    public static void Load(Scene scene) {
-        SceneManager.LoadSceneAsync(scene.ToString());
+    public static void LoadScene(Scenes scene) {
+        //GameObject.Find("SceneTransition").GetComponent<SceneTransition>().ExitSceneTransition();
+        DataPersistenceManager.instance.SaveGame();
+        int temp = (int) scene;
+        SceneManager.LoadSceneAsync(temp);
     }
 
-    /*
-    public static string CurrentScene() {
-        return Scene.name;
+    public static void LoadScene(int scene) {
+        SceneManager.LoadSceneAsync(scene);
     }
-    */
+
+    public static int CurrentSceneIndex() {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
+
+    public static string CurrentSceneName() {
+        return SceneManager.GetActiveScene().name;
+    }
+
+    public static void PositionPlayer(int previousScene) {
+        int currentScene = CurrentSceneIndex();
+        Debug.Log(previousScene);
+        if (previousScene == (int) Scenes.Map1 && currentScene == (int) Scenes.Map1a) {
+            Debug.Log("Positioning correctly in map1a");
+            GameObject.Find("Player").transform.position = new Vector3(-8.29f, 1.911422f, 0f);
+        } else if (previousScene == (int) Scenes.Map1a && currentScene == (int) Scenes.Map1) {
+            Debug.Log("Positioning correctly in map1");
+            GameObject.Find("Player").transform.position = new Vector3(6.156194f, -18.09135f, 0f);
+        }
+    }
+
 }
 
 

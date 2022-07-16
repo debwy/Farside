@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//using UnityEngine.SceneManagement;
 
-public class MainMenu : Menu
+public class MainMenu : Menu, IDataPersistence
 {
     [SerializeField] private Button newGameButton;
     [SerializeField] private Button continueGameButton;
     [SerializeField] private Button quitGameButton;
+    private int newGameFirstScene = (int) Loader.Scenes.Map1;
+    private int sceneToBeLoaded = (int) Loader.Scenes.Map1;
 
     private void Start() {
         if (!DataPersistenceManager.instance.HasGameData()) {
@@ -28,7 +29,7 @@ public class MainMenu : Menu
         DataPersistenceManager.instance.isLoadedFromMenu = true;
 
         //Loads gameplay scene (saves game since main menu is unloaded)
-        Loader.Load(Loader.Scene.Map1);
+        Loader.LoadScene(newGameFirstScene);
 
     }
 
@@ -41,8 +42,8 @@ public class MainMenu : Menu
 
         DataPersistenceManager.instance.isLoadedFromMenu = true;
 
-        //Loads next scenne (which loads game due to OnSceneLoaded() in DataPersistenceManager)
-        Loader.Load(Loader.Scene.Map1);
+        //Loads next scene (which loads game due to OnSceneLoaded() in DataPersistenceManager)
+        Loader.LoadScene(sceneToBeLoaded);
 
     }
 
@@ -59,6 +60,14 @@ public class MainMenu : Menu
         newGameButton.interactable = false;
         continueGameButton.interactable = false;
         quitGameButton.interactable = false;
+    }
+
+    public void LoadData(GameData data) {
+        sceneToBeLoaded = data.lastSavedScene;
+    }
+
+    public void SaveData(GameData data) {
+        //loader does this
     }
 }
 

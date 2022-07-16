@@ -23,6 +23,7 @@ public class DataPersistenceManager : MonoBehaviour
     private string mainProfileId = "main";
     private string tempProfileId = "temp";
     public bool isLoadedFromMenu = false;
+    public bool doNotSave = false;
 
     private void Awake()
     {
@@ -95,19 +96,24 @@ public class DataPersistenceManager : MonoBehaviour
     }
 
     public void SaveGame() {
-        //If there's no data to save, log a warning
-        if (this.gameData == null) {
-            Debug.LogWarning("No data was found. A new game needs to be started before data can be saved");
-            return;
-        }
+        //do not save in instances like character death when changing scene
+        if (!doNotSave) {
+            //If there's no data to save, log a warning
+            if (this.gameData == null) {
+                Debug.LogWarning("No data was found. A new game needs to be started before data can be saved");
+                return;
+            }
 
-        //Pass the data to other scripts so that they can update it
-        foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) {
-            dataPersistenceObj.SaveData(gameData);
-        }
+            //Pass the data to other scripts so that they can update it
+            foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) {
+                dataPersistenceObj.SaveData(gameData);
+            }
 
-        //Save that data to a file (using the data handler)
-        dataHandler.Save(gameData, tempProfileId);
+            //Save that data to a file (using the data handler)
+            dataHandler.Save(gameData, tempProfileId);
+        } else {
+            doNotSave = false;
+        }
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects() {
@@ -135,12 +141,15 @@ public class DataPersistenceManager : MonoBehaviour
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         //Everytime a scene is loaded re-initializes list of data persistence objects
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-        if (isLoadedFromMenu) {
-            MenuLoadGame();
-            isLoadedFromMenu = false;
-        } else {
-            LoadGame();
-        }
+        LoadGame();
+    }
+    
+    public bool IsLoadedFromMenu() {
+        return isLoadedFromMenu;
+    }
+
+    public void SetLoadedFromMenu(bool input) {
+        isLoadedFromMenu = input;
     }
 
     /*
