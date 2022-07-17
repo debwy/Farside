@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: a508dae9a2daca04b801da99d1d00f4a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Billie DEMO
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b2e45e5bb016921438c7d6d5ffc269bc, type: 3}
+  - {fileID: 12800000, guid: 804367980dda0ca4a9708d4adadbbb86, type: 3}
+  - {fileID: 12800000, guid: 730076a109bec9a4f9dcdc3e3a3cb7bf, type: 3}
+  - {fileID: 12800000, guid: 12bfe8083a4742d4294b746b2afc0bb9, type: 3}
+  - {fileID: 12800000, guid: f2513364c0164eb4f90e09f1171aa534, type: 3}
+  - {fileID: 12800000, guid: f02496b4c2679fa409fd0d79037289a6, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

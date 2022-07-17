@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: f9b76d2e6c846fb4d8fef5f68cd8b5bd
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Butler
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 920e388c79299494295e6b10ae42aad9, type: 3}
+  - {fileID: 12800000, guid: 46b8103f4f9752e419c49b98c23b4842, type: 3}
+  - {fileID: 12800000, guid: 10a5927cc8e52d24cbb9e06179c8bc18, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

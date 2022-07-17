@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: b3311d1a56f1bae4284ce7b8c77d5682
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Zabal DEMO
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 233e69f0c9d098c46973bcd79ca809e7, type: 3}
+  - {fileID: 12800000, guid: 8219525f3480df84898e181540b6f89c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

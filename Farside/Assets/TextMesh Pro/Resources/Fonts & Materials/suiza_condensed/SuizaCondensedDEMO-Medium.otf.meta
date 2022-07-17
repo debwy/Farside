@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 0550888bd3eb77c46b529fe3b0eb5cc8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Suiza Condensed DEMO
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 72c0f395aa79c954aa49b30007ec06c5, type: 3}
+  - {fileID: 12800000, guid: 80a1553a21e4082499c3b9b7bc2396d7, type: 3}
+  - {fileID: 12800000, guid: 1352f0094cfca5d49b10419171bf4538, type: 3}
+  - {fileID: 12800000, guid: d3e3579247a0bac4792e72e72ef4526c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

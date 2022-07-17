@@ -1,0 +1,353 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.2f1 (d6360bedb9a0) revision 14038539'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19044) 64bit Core' Language: 'en' Physical Memory: 15789 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.2f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker5
+-projectPath
+C:/Users/malor/OneDrive/Documents/GitHub/y3abOl/Farside
+-logFile
+Logs/AssetImportWorker5.log
+-srvPort
+58957
+Successfully changed project path to: C:/Users/malor/OneDrive/Documents/GitHub/y3abOl/Farside
+C:/Users/malor/OneDrive/Documents/GitHub/y3abOl/Farside
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 101.30 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.2f1 (d6360bedb9a0)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/malor/OneDrive/Documents/GitHub/y3abOl/Farside/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2060 with Max-Q Design (ID=0x1f12)
+    Vendor:   NVIDIA
+    VRAM:     5980 MB
+    Driver:   30.0.15.1278
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56748
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.007855 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 100.20 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.598 seconds
+Domain Reload Profiling:
+	ReloadAssembly (598ms)
+		BeginReloadAssembly (64ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (425ms)
+			LoadAssemblies (62ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (95ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (26ms)
+			SetupLoadedEditorAssemblies (258ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (100ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (107ms)
+				ProcessInitializeOnLoadMethodAttributes (40ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.007004 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\malor\OneDrive\Documents\GitHub\y3abOl\Farside\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\malor\OneDrive\Documents\GitHub\y3abOl\Farside\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 98.56 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.087 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1087ms)
+		BeginReloadAssembly (100ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (18ms)
+		EndReloadAssembly (877ms)
+			LoadAssemblies (78ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (224ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (54ms)
+			SetupLoadedEditorAssemblies (481ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (99ms)
+				BeforeProcessingInitializeOnLoad (107ms)
+				ProcessInitializeOnLoadAttributes (222ms)
+				ProcessInitializeOnLoadMethodAttributes (40ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.80 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4259 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (56.0 KB). Loaded Objects now: 4718.
+Memory consumption went from 158.9 MB to 158.9 MB.
+Total: 3.183000 ms (FindLiveObjects: 0.338400 ms CreateObjectMapping: 0.120700 ms MarkObjects: 2.628000 ms  DeleteObjects: 0.094900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 85690.027769 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/cream-DEMO SDF.asset
+  artifactKey: Guid(313ebf8cc35ae4c488cc7250f146e659) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/cream-DEMO SDF.asset using Guid(313ebf8cc35ae4c488cc7250f146e659) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f8b37339f521ef9217c7cea026008d1') in 0.142561 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.945497 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/leyendo/LeyendoDEMO-Bold.otf
+  artifactKey: Guid(80ba96067d52e3e4a8f362ebd89c31f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/leyendo/LeyendoDEMO-Bold.otf using Guid(80ba96067d52e3e4a8f362ebd89c31f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '751089a3ac1380221e5a43aeacc1a5e8') in 0.028107 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/leyendo/LeyendoDEMO-BoldItalic.otf
+  artifactKey: Guid(e263ee49ab63b0245b05e14703a383f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/leyendo/LeyendoDEMO-BoldItalic.otf using Guid(e263ee49ab63b0245b05e14703a383f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd090098afa46a6fc8e86093197fa976a') in 0.043513 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/leyendo/LeyendoDEMO-MediumItalic.otf
+  artifactKey: Guid(81a4f60f5e572b34cb2a3d4c451cec0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/leyendo/LeyendoDEMO-MediumItalic.otf using Guid(81a4f60f5e572b34cb2a3d4c451cec0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2a523c992bc568ccf4c2cc45dc13478') in 0.023733 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.119098 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/philosopher/Philosopher-Italic.ttf
+  artifactKey: Guid(b47020abadc7f0b4ea3bcdd920153a30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/philosopher/Philosopher-Italic.ttf using Guid(b47020abadc7f0b4ea3bcdd920153a30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0a50941a8af9619d4b39c48ce8bd2fc') in 0.070466 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.528146 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/pieces_of_eight/Pieces of Eight.mp3
+  artifactKey: Guid(3047125e35f6a894e9509f4c08e0eab3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/pieces_of_eight/Pieces of Eight.mp3 using Guid(3047125e35f6a894e9509f4c08e0eab3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4bf6d97c7376a0ee32a82f497cf8e346') in 0.079291 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 20.633393 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/quicksand/Quicksand_Book.otf
+  artifactKey: Guid(eb20ffa239e07ba40b6daa3c7236bef4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/quicksand/Quicksand_Book.otf using Guid(eb20ffa239e07ba40b6daa3c7236bef4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae3629547718879f6e319940fdcab9e1') in 0.026856 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/quicksand/SPECIMENPOSTER_4967.jpg
+  artifactKey: Guid(bf58f8b5ded819b4392b1cbcfd5c100f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/quicksand/SPECIMENPOSTER_4967.jpg using Guid(bf58f8b5ded819b4392b1cbcfd5c100f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '360e3cfa3b326f6aee43d9744323b866') in 0.077844 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 44.817561 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/roboto/Roboto-Bold.ttf
+  artifactKey: Guid(2c0bc95c75e01064295bd565f21a06c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/roboto/Roboto-Bold.ttf using Guid(2c0bc95c75e01064295bd565f21a06c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf0a87262cf9472fc760120f36a6e082') in 0.022249 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000123 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/roboto/Roboto-Light.ttf
+  artifactKey: Guid(4a6f89677a31897419f784253b1c6709) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/roboto/Roboto-Light.ttf using Guid(4a6f89677a31897419f784253b1c6709) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3ea2ccc8ea183802570a09efaf69201') in 0.031934 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/roboto/Roboto-Italic.ttf
+  artifactKey: Guid(a1aed0480482af248814d246d665af1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/roboto/Roboto-Italic.ttf using Guid(a1aed0480482af248814d246d665af1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '411eb923833dc045c4e5e069acc1045e') in 0.047040 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/roboto/Roboto-BoldItalic.ttf
+  artifactKey: Guid(802cc1bc02687684298ae0ee09df5bb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/roboto/Roboto-BoldItalic.ttf using Guid(802cc1bc02687684298ae0ee09df5bb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85d9b0e4eb8866ed5625ba9c33a2a6e0') in 0.023069 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/roboto/Roboto-BoldCondensedItalic.ttf
+  artifactKey: Guid(dad093881ae551f44ba99b94da439341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/roboto/Roboto-BoldCondensedItalic.ttf using Guid(dad093881ae551f44ba99b94da439341) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b5508f70ccc0caf43999033a3c85094') in 0.027570 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 22.320633 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/suiza_condensed/SuizaCondensedDEMO-Bold.otf
+  artifactKey: Guid(458473b8c618695478cdd16448e7dad6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/suiza_condensed/SuizaCondensedDEMO-Bold.otf using Guid(458473b8c618695478cdd16448e7dad6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cca18baf4063307b9e135dae216a6fd9') in 0.027224 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/suiza_condensed/SuizaCondensedDEMO-ExtraBoldItalic.otf
+  artifactKey: Guid(37104b887980fb34badda86b60c27e1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/suiza_condensed/SuizaCondensedDEMO-ExtraBoldItalic.otf using Guid(37104b887980fb34badda86b60c27e1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0f1817697bde545b8dbc12e6bda4af2') in 0.034217 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/suiza_condensed/SuizaCondensedDEMO-Light.otf
+  artifactKey: Guid(7deb2735f2d2b7b47bef4422d4b6b730) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/suiza_condensed/SuizaCondensedDEMO-Light.otf using Guid(7deb2735f2d2b7b47bef4422d4b6b730) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f6069c6a9cb615db38ae33736d89e73') in 0.059442 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000087 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/suiza_condensed/SuizaCondensedDEMO-ExtraBold.otf
+  artifactKey: Guid(bb5c07accc3e31149b8e75e10c4cb27f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/suiza_condensed/SuizaCondensedDEMO-ExtraBold.otf using Guid(bb5c07accc3e31149b8e75e10c4cb27f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4893bfe96ae283f0f259449c161e3f79') in 0.035636 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/suiza_condensed/SuizaCondensedDEMO-BoldItalic.otf
+  artifactKey: Guid(7b02ce9e0014ddf458589726bfd9ca3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/suiza_condensed/SuizaCondensedDEMO-BoldItalic.otf using Guid(7b02ce9e0014ddf458589726bfd9ca3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a37b352e58aa181eba81a5c15673450') in 0.028211 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 39.776983 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/zabal/ZabalDEMO-Bold.otf
+  artifactKey: Guid(14561ee6c02df544494fbcdbac116427) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/zabal/ZabalDEMO-Bold.otf using Guid(14561ee6c02df544494fbcdbac116427) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4085c4af2b580772246973b55ab187af') in 0.022755 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/zabal/ZabalDEMO-Regular.otf
+  artifactKey: Guid(7f154f230f3e69d4ea5102217a33c0b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/zabal/ZabalDEMO-Regular.otf using Guid(7f154f230f3e69d4ea5102217a33c0b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3230bca3d808e63a1023819ae939dd8a') in 0.046121 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/zabal/ZabalDEMO-ThinItalic.otf
+  artifactKey: Guid(4e5eea5ec85ee83479f2cdc3a333def7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/zabal/ZabalDEMO-ThinItalic.otf using Guid(4e5eea5ec85ee83479f2cdc3a333def7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5d04da2d89b37fdcb6df3d66c9c4a47') in 0.041619 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/zabal/ZabalDEMO-ExtraBold.otf
+  artifactKey: Guid(edfab4fb033e5924695680998b136849) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/zabal/ZabalDEMO-ExtraBold.otf using Guid(edfab4fb033e5924695680998b136849) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42fb2974671ead82c333d0802c9f35c7') in 0.028628 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/zabal/ZabalDEMO-ExtraLight.otf
+  artifactKey: Guid(26b9b51d8a746874e8aa643acb5bef33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/zabal/ZabalDEMO-ExtraLight.otf using Guid(26b9b51d8a746874e8aa643acb5bef33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'acfbcb4b5b8abb2c0df2f7f1f066d622') in 0.049105 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/zabal/ZabalDEMO-ExtraLightItalic.otf
+  artifactKey: Guid(a5f0d5b1fb327c142a047a598d3dbcb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/zabal/ZabalDEMO-ExtraLightItalic.otf using Guid(a5f0d5b1fb327c142a047a598d3dbcb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7abf5d6e60c138d49d97b519ca00dffe') in 0.025195 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/zabal/ZabalDEMO-UltraItalic.otf
+  artifactKey: Guid(2762cba342dcdd846b531540d976e7dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/zabal/ZabalDEMO-UltraItalic.otf using Guid(2762cba342dcdd846b531540d976e7dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68c0c84de4c0e115878085b773da5575') in 0.018827 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 42.185976 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/FPTypewriterDEMO-Light SDF.asset
+  artifactKey: Guid(561d16b9c3dd16e40ab35eec734f0d14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/FPTypewriterDEMO-Light SDF.asset using Guid(561d16b9c3dd16e40ab35eec734f0d14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05a1d38c2059b15149a48b9bf49a8d25') in 0.045836 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/FPTypewriterDEMO-Regular SDF.asset
+  artifactKey: Guid(e69e020e9af403c43bbdb307982770a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/FPTypewriterDEMO-Regular SDF.asset using Guid(e69e020e9af403c43bbdb307982770a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a060a39481dd19e6c05497560aef984') in 0.033546 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 95.234919 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/Champagne & Limousines Bold Italic SDF.asset
+  artifactKey: Guid(a198cd1094ac68c4bb3cb6a184298f63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/Champagne & Limousines Bold Italic SDF.asset using Guid(a198cd1094ac68c4bb3cb6a184298f63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bc09c551663ad23a735a92e75a730cf') in 0.031988 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/Champagne & Limousines SDF.asset
+  artifactKey: Guid(b2ec4353e42abe64599bdce0bbff20d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/Champagne & Limousines SDF.asset using Guid(b2ec4353e42abe64599bdce0bbff20d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e77287112ff45012221a1189257f6de') in 0.037636 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.201091 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/JMH Typewriter-Bold SDF.asset
+  artifactKey: Guid(9ceeafe495a3fac4cadc54b382809293) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/JMH Typewriter-Bold SDF.asset using Guid(9ceeafe495a3fac4cadc54b382809293) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb849ab78dd933cb15914d196fcbae8b') in 0.041679 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/KIN668 SDF.asset
+  artifactKey: Guid(23d4105b8b91c6341a94e95204406af8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/KIN668 SDF.asset using Guid(23d4105b8b91c6341a94e95204406af8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c48fc65db6876d8407de8059ca95a564') in 0.037260 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

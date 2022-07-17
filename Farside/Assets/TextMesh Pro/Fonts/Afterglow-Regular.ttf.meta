@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 4f6c4c07ec766ae4497ed9b28545291b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Afterglow
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8794a5562fec2954c86b4da17369a412, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

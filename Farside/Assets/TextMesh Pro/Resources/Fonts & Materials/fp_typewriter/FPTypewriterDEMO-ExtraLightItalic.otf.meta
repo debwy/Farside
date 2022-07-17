@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: fc52ffef69f31cf46b8ac89fc01d2342
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - FP Typewriter DEMO
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5c9b906530483f745833a4d50ba0c7fd, type: 3}
+  - {fileID: 12800000, guid: 798e0873b2bb2a34b854c4c612c4dd81, type: 3}
+  - {fileID: 12800000, guid: 96bdc9e39542f614eb6952b1f3b8fe07, type: 3}
+  - {fileID: 12800000, guid: a01ddf223a092c04791095f4afbd2569, type: 3}
+  - {fileID: 12800000, guid: 50aab12544c438d4b828abe9fbdd3785, type: 3}
+  - {fileID: 12800000, guid: da03de047ec1871438fecd7b15edbfd5, type: 3}
+  - {fileID: 12800000, guid: e74dc4bd00763f74984437b04041abdb, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

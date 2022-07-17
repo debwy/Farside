@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: d16ae3f989fed8147a3e0b1f3c955427
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Leyendo DEMO
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 81a4f60f5e572b34cb2a3d4c451cec0a, type: 3}
+  - {fileID: 12800000, guid: 80ba96067d52e3e4a8f362ebd89c31f8, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
