@@ -51,7 +51,6 @@ public class DialogueManager : MonoBehaviour
         return instance;
     }
 
-    //start, initialise false for dialogue & panel
     private void Start()
     {
         dialogueIsPlaying = false;
@@ -70,7 +69,6 @@ public class DialogueManager : MonoBehaviour
     //logic to traverse Ink story
     private void Update()
     {
-        //ends if dialogue isnt playing
         if (!dialogueIsPlaying)
         {
             return;
@@ -137,8 +135,6 @@ public class DialogueManager : MonoBehaviour
         string displayedText = "";
         int alphaIndex = 0;
 
-        //their 'CurrentText' is my 'line')
-        //their Text.text is my dialogueText.text
         foreach (char letter in line.ToCharArray())
         {
             //if player presses space/LMB, show full text immediately
@@ -146,8 +142,7 @@ public class DialogueManager : MonoBehaviour
             {
                 dialogueText.text = line;
                 break;
-            }
-            */
+            } */
             alphaIndex++;
             dialogueText.text = originalText;
             displayedText = dialogueText.text.Insert(alphaIndex, kAlphaCode);
