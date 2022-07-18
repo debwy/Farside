@@ -99,16 +99,17 @@ public class Golem : MonoBehaviour, IEnemy
 
     //when player not in "sight" or when cooldown for abilities up
     private void RunTowards(Transform targetLocation) {
-        if (targetLocation.position.x < transform.position.x) {
-            if (isFacingRight) {
-                Flip();
-            }
-        } else {
-            if (!isFacingRight) {
-                Flip();
-            }
-        }
         if (ableToMove) {
+            if (targetLocation.position.x - transform.position.x < -1f) {
+                if (isFacingRight) {
+                    Flip();
+                }
+            } else if (targetLocation.position.x - transform.position.x > 1f) {
+                if (!isFacingRight) {
+                    Flip();
+                }
+            }
+            
             body.AddForce(new Vector2(speed * faceRightInt, 0f), ForceMode2D.Impulse);
         }
     }

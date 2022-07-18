@@ -38,9 +38,9 @@ public class MainMenu : Menu, IDataPersistence
         DisableAllButtons();
 
         //Saving before a scene is destroyed rather than after to prevent reference errors
-        DataPersistenceManager.instance.MenuSaveGame();
+        //DataPersistenceManager.instance.SaveGame();
 
-        DataPersistenceManager.instance.isLoadedFromMenu = true;
+        DataPersistenceManager.instance.SetLoadedFromMenu(true);
 
         //Loads next scene (which loads game due to OnSceneLoaded() in DataPersistenceManager)
         Loader.LoadScene(sceneToBeLoaded);

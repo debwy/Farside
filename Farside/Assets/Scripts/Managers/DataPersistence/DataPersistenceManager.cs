@@ -24,6 +24,7 @@ public class DataPersistenceManager : MonoBehaviour
     private string tempProfileId = "temp";
     public bool isLoadedFromMenu = false;
     public bool doNotSave = false;
+    public bool isSavedFromCheckpoint = false;
 
     private void Awake()
     {
@@ -43,11 +44,15 @@ public class DataPersistenceManager : MonoBehaviour
         this.gameData = new GameData();
     }
 
-    public void MenuLoadGame() {
+    public void LoadGame() {
+
         //Loads any saved data from a file (using the data handler)
         //Result would be null if data doesn't exist
-        this.gameData = dataHandler.Load(mainProfileId);
-        this.gameData = dataHandler.Load(tempProfileId);
+        if (isLoadedFromMenu) {
+            this.gameData = dataHandler.Load(mainProfileId);
+        } else {
+            this.gameData = dataHandler.Load(tempProfileId);
+        }
 
         //If no data to load, don't continue
         if (this.gameData == null) {
@@ -59,9 +64,14 @@ public class DataPersistenceManager : MonoBehaviour
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) {
             dataPersistenceObj.LoadData(gameData);
         }
+
+        isLoadedFromMenu = false;
     }
 
     public void MenuSaveGame() {
+
+        isSavedFromCheckpoint = true;
+
         //If there's no data to save, log a warning
         if (this.gameData == null) {
             Debug.LogWarning("No data was found. A new game needs to be started before data can be saved");
@@ -76,28 +86,16 @@ public class DataPersistenceManager : MonoBehaviour
         //Save that data to a file (using the data handler)
         dataHandler.Save(gameData, mainProfileId);
         dataHandler.Save(gameData, tempProfileId);
-    }
+        
+        isSavedFromCheckpoint = false;
 
-    public void LoadGame() {
-        //Loads any saved data from a file (using the data handler)
-        //Result would be null if data doesn't exist
-        this.gameData = dataHandler.Load(tempProfileId);
-
-        //If no data to load, don't continue
-        if (this.gameData == null) {
-            Debug.Log("No data was found");
-            return;
-        }
-
-        //Push the loaded data to all other scripts that need it
-        foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) {
-            dataPersistenceObj.LoadData(gameData);
-        }
+        Debug.Log("Saved game");
     }
 
     public void SaveGame() {
         //do not save in instances like character death when changing scene
         if (!doNotSave) {
+
             //If there's no data to save, log a warning
             if (this.gameData == null) {
                 Debug.LogWarning("No data was found. A new game needs to be started before data can be saved");
@@ -111,6 +109,7 @@ public class DataPersistenceManager : MonoBehaviour
 
             //Save that data to a file (using the data handler)
             dataHandler.Save(gameData, tempProfileId);
+
         } else {
             doNotSave = false;
         }
@@ -146,6 +145,10 @@ public class DataPersistenceManager : MonoBehaviour
     
     public bool IsLoadedFromMenu() {
         return isLoadedFromMenu;
+    }
+
+    public bool IsSavedFromCheckpoint() {
+        return isSavedFromCheckpoint;
     }
 
     public void SetLoadedFromMenu(bool input) {

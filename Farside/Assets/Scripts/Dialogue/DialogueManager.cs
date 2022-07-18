@@ -145,7 +145,7 @@ public class DialogueManager : MonoBehaviour
             {
                 case SAVE_TAG:
                     Debug.Log("save=" + tagValue);
-                    DataPersistenceManager.instance.SaveGame();
+                    DataPersistenceManager.instance.MenuSaveGame();
                     break;
                 default:
                     Debug.LogWarning("Tag came in: " + tag);

@@ -137,19 +137,25 @@ public class PlayerMain : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data) {
         combat.Load(data);
+
+        //Player is positioned via save if loaded from menu
+        //Else player is positioned at scenes-linked point
+        Debug.Log(DataPersistenceManager.instance.IsLoadedFromMenu());
         if (DataPersistenceManager.instance.IsLoadedFromMenu()) {
             this.transform.position = data.playerPosition;
-            DataPersistenceManager.instance.SetLoadedFromMenu(false);
         } else {
-            Debug.Log("calling position player");
             Loader.PositionPlayer(data.lastSavedScene);
         }
     }
 
     public void SaveData(GameData data) {
         combat.Save(data);
-        data.playerPosition = this.transform.position;
         data.lastSavedScene = Loader.CurrentSceneIndex();
+
+        //should only be overriten at a campfire
+        if (DataPersistenceManager.instance.IsSavedFromCheckpoint()) {
+            data.playerPosition = this.transform.position;
+        }
     }
 
 }
