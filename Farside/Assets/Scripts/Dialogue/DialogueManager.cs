@@ -36,6 +36,10 @@ public class DialogueManager : MonoBehaviour
 
     private static DialogueManager instance;
 
+    private const string SAVE_TAG = "save";
+
+
+
     //initialise the instance
     private void Awake()
     {
@@ -95,7 +99,7 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator ExitDialogueMode()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0f);
         
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
@@ -105,6 +109,8 @@ public class DialogueManager : MonoBehaviour
 
     private void ContinueStory()
     {
+        HandleTags(currentStory.currentTags);
+        
         if (currentStory.canContinue)
         {
             if (displayLineCoroutine != null)
@@ -113,11 +119,38 @@ public class DialogueManager : MonoBehaviour
             }
 
             displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
+
             
         }
         else //cant continue, empty JSON file
         {
             StartCoroutine(ExitDialogueMode());
+        }
+    }
+
+    //handle tags (for saving)
+    private void HandleTags(List<string> currentTags)
+    {
+        foreach (string tag in currentTags)
+        {
+            string[] splitTag = tag.Split(':');
+            if (splitTag.Length != 2)
+            {
+                Debug.LogError("tag length != 2");
+            }
+            string tagKey = splitTag[0].Trim();
+            string tagValue = splitTag[1].Trim();
+
+            switch (tagKey)
+            {
+                case SAVE_TAG:
+                    Debug.Log("save=" + tagValue);
+                    //PersistentData.instance.SaveGame();
+                    break;
+                default:
+                    Debug.LogWarning("Tag came in: " + tag);
+                    break;
+            }
         }
     }
 

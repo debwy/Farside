@@ -28,8 +28,6 @@ public class DialogueTrigger : MonoBehaviour
         if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
             visualCue.SetActive(true);
-            //here original code was if (InputManager.GetInstance().GetInteractPressed()), but we
-            //not using the inputmanager singleton class thingy so i directly check for press E
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
