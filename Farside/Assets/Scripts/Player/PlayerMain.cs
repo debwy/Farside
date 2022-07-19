@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class PlayerMain : MonoBehaviour, IDataPersistence
 {
-    [SerializeField]
-    internal PlayerInput input;
-    [SerializeField]
-    internal PlayerMovement movement;
-    [SerializeField]
-    internal PlayerCollision collision;
-    [SerializeField]
-    internal PlayerCombat combat;
+    [SerializeField] internal PlayerInput input;
+    [SerializeField] internal PlayerMovement movement;
+    [SerializeField] internal PlayerCollision collision;
+    [SerializeField] internal PlayerCombat combat;
 
     internal Animator ani;
     internal Rigidbody2D body;
@@ -19,6 +15,7 @@ public class PlayerMain : MonoBehaviour, IDataPersistence
     internal bool faceRight;
     internal bool enableMovement;
     internal bool enableActions;
+    internal bool enableDialogue;
 
     [SerializeField]
     internal Healthbar healthbar;
@@ -31,6 +28,7 @@ public class PlayerMain : MonoBehaviour, IDataPersistence
         faceRight = true;
         enableMovement = true;
         enableActions = true;
+        enableDialogue = true;
     }
 
     // Update is called once per frame
@@ -51,12 +49,10 @@ public class PlayerMain : MonoBehaviour, IDataPersistence
 
     private void PlayerActions() {
         if (input.attacking) {
-            ani.SetTrigger("Attack");
             combat.MeleeAttack();
         }
 
         if (input.shooting) {
-            ani.SetTrigger("Shoot");
             combat.Shoot();
         }
 
@@ -80,6 +76,8 @@ public class PlayerMain : MonoBehaviour, IDataPersistence
         }
     }
 
+    internal bool isRunning = false;
+
     private void PlayerMovement() {
         if(input.Grounded()) {
             ani.SetBool("Ground", true);
@@ -87,7 +85,13 @@ public class PlayerMain : MonoBehaviour, IDataPersistence
             ani.SetBool("Ground", false);
         }
 
-        ani.SetBool("Run", input.moveHorizontal != 0);
+        isRunning = input.moveHorizontal != 0;
+        ani.SetBool("Run", isRunning);
+        if (isRunning) {
+            movement.material.friction = 0.5f;
+        } else {
+            movement.material.friction = 1f;
+        }
 
         if (input.moveHorizontal > 0.1f) {
             if (!faceRight) {
@@ -105,7 +109,7 @@ public class PlayerMain : MonoBehaviour, IDataPersistence
         }
         if(input.Grounded() && input.moveVertical > 0.1f) {
             ani.SetTrigger("Jump");
-            movement.VerticalMovement(input.moveVertical);
+            movement.VerticalMovement();
         }
     }
 
@@ -140,7 +144,6 @@ public class PlayerMain : MonoBehaviour, IDataPersistence
 
         //Player is positioned via save if loaded from menu
         //Else player is positioned at scenes-linked point
-        Debug.Log(DataPersistenceManager.instance.IsLoadedFromMenu());
         if (DataPersistenceManager.instance.IsLoadedFromMenu()) {
             this.transform.position = data.playerPosition;
         } else {
@@ -156,6 +159,22 @@ public class PlayerMain : MonoBehaviour, IDataPersistence
         if (DataPersistenceManager.instance.IsSavedFromCheckpoint()) {
             data.playerPosition = this.transform.position;
         }
+    }
+
+    public void DisablePlayerActions() {
+        enableActions = false;
+        enableMovement = false;
+        enableDialogue = false;
+    }
+
+    public void EnablePlayerActions() {
+        enableActions = true;
+        enableMovement = true;
+        enableDialogue = true;
+    }
+
+    public bool IsAbleToDialogue() {
+        return enableDialogue;
     }
 
 }

@@ -20,6 +20,7 @@ public class PlayerInput : MonoBehaviour
     internal bool isJumping;
     internal bool shooting;
     internal bool dashing;
+    internal bool isInteracting;
 
     internal float direction;
 
@@ -37,6 +38,7 @@ public class PlayerInput : MonoBehaviour
         shooting = Input.GetMouseButtonDown(1);
         isJumping = !Grounded();
         dashing = Input.GetKeyDown(KeyCode.LeftShift);
+        isInteracting = Input.GetKeyDown(KeyCode.Space);
         
         if (player.faceRight) {
             direction = 1f;
@@ -49,37 +51,50 @@ public class PlayerInput : MonoBehaviour
     private RaycastHit2D hitGround;
     public GameObject groundRayAlt;
     private RaycastHit2D hitGroundAlt;
-    public float groundedValue = 0.1f;
+    public float groundedValue = 0.2f;
+    public float groundedValueOnSlope = 0.4f;
 
-    public GameObject obstacleRay;
-    private RaycastHit2D hitObs;
-    public float wallValue = 0.3f;
+    public GameObject slopeRay;
+    private RaycastHit2D hitSlope;
+    public GameObject slopeRayAlt;
+    private RaycastHit2D hitSlopeAlt;
 
     private void Raycasting() 
     {
         hitGround = Physics2D.Raycast (groundRay.transform.position, -Vector2.up);
         Debug.DrawRay (groundRay.transform.position, -Vector2.up * hitGround.distance, Color.red);
-        //Debug.Log(hitGround.distance);
 
         hitGroundAlt = Physics2D.Raycast (groundRayAlt.transform.position, -Vector2.up);
         Debug.DrawRay (groundRayAlt.transform.position, -Vector2.up * hitGroundAlt.distance, Color.blue);
 
-        hitObs = Physics2D.Raycast (obstacleRay.transform.position, Vector2.right * direction);
-        Debug.DrawRay (obstacleRay.transform.position, Vector2.right * hitObs.distance * direction, Color.blue);
+        hitSlope = Physics2D.Raycast (slopeRay.transform.position, -Vector2.up);
+        Debug.DrawRay (slopeRay.transform.position, -Vector2.up * hitSlope.distance, Color.blue);
 
-        //Debug.Log(hitObs.collider.gameObject.name);
-        /*
-        if (hitObs.collider != null) {
-            Debug.Log ("Target name: " + hitObs.collider.name);
-        }
-        */
-    
+        hitSlopeAlt = Physics2D.Raycast (slopeRayAlt.transform.position, -Vector2.up);
+        Debug.DrawRay (slopeRayAlt.transform.position, -Vector2.up * hitSlopeAlt.distance, Color.red);
+    }
+
+    internal float DifferenceInDistance() {
+        return hitSlope.distance - hitSlopeAlt.distance;
+    }
+
+    //used to determine whether movement speed is increased (uphill)
+    internal bool SlopeCheck() {
+        return DifferenceInDistance() > 0.1f && DifferenceInDistance() < 0.7f;
+    }
+
+    //used to determine whether alternate ground check can be used (any slope)
+    private float absoluteDistance;
+    internal bool SlopeGroundedCheck() {
+        absoluteDistance = Math.Abs(DifferenceInDistance());
+        return absoluteDistance > 0.1f && absoluteDistance < 0.7f;
     }
 
     internal float DistanceFromGround() {
         return Math.Min(hitGround.distance, hitGroundAlt.distance);
     }
+
     internal bool Grounded() {
-        return DistanceFromGround() < groundedValue && DistanceFromGround() != 0;
+        return (DistanceFromGround() < groundedValue && DistanceFromGround() != 0) || (SlopeGroundedCheck() && DistanceFromGround() < groundedValueOnSlope);
     }
 }

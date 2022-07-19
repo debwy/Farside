@@ -7,10 +7,10 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField]
     internal PlayerMain player;
 
-    public int attackDamage = 10;
+    public int attackDamage = 5;
     public int maxHealth = 100;
     private int currentHealth = 100;
-    public int shotDmgDivide = 5;
+    public int shotDmgDivide = 2;
 
     public Transform attackPoint;
     public float attackRange = 1.15f;
@@ -19,6 +19,17 @@ public class PlayerCombat : MonoBehaviour
     public PlayerProjectile projectile;
     public Transform launcher;
 
+    [SerializeField] private float attackCooldown = 2f;
+    private float lastAttack1 = -100f;
+    private float lastAttack2 = -100f;
+    private float lastAttackRefill = -100f;
+    [SerializeField] private float rangedCooldown = 2f;
+    private float lastRanged = -100f;
+
+    [SerializeField] private int rangedCount = 3;
+    [SerializeField] private int meleeCount = 3;
+    [SerializeField] private float chainedAttackTime = 0.8f;
+
     void Start()
     {
         player.healthbar.SetMaxHealth(maxHealth);
@@ -26,7 +37,15 @@ public class PlayerCombat : MonoBehaviour
     }
 
     internal void Shoot() {
-        Instantiate(projectile, launcher.position, launcher.rotation);
+        if (rangedCount < 3 && Time.time >= lastRanged + rangedCooldown) {
+            lastRanged = Time.time;
+            rangedCount = 3;
+        }
+        if (rangedCount > 0) {
+            rangedCount--;
+            Instantiate(projectile, launcher.position, launcher.rotation);
+            player.ani.SetTrigger("Shoot");
+        }
     }
 
     internal int GetShotAttackDmg() {
@@ -34,6 +53,25 @@ public class PlayerCombat : MonoBehaviour
     }
 
     internal void MeleeAttack() {
+        if (meleeCount < 3 && Time.time >= lastAttackRefill + attackCooldown) {
+            lastAttackRefill = Time.time;
+            meleeCount = 3;
+        }
+        if (meleeCount > 0) {
+            if (Time.time - lastAttack2 < chainedAttackTime) {
+                player.ani.SetTrigger("Attack3");
+            } else if (Time.time - lastAttack1 < chainedAttackTime) {
+                player.ani.SetTrigger("Attack2");
+                lastAttack2 = Time.time;
+            } else {
+                player.ani.SetTrigger("Attack");
+                lastAttack1 = Time.time;
+            }
+            meleeCount--;
+        }
+    }
+
+    private void MeleeCollect() {
         //detects items in range of atk & collects them in an array
         Collider2D[] hitThings = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, attackableLayers);
         //calls specific methods for all

@@ -27,8 +27,6 @@ public class NpcFacePlayer : MonoBehaviour
     {
         hitObs = Physics2D.Raycast (obstacleRay.transform.position, rightInt * Vector2.right);
         Debug.DrawRay (obstacleRay.transform.position, rightInt * Vector2.right * hitObs.distance, Color.red);
-    
-        //Debug.Log(hitObs.collider.name);
 
         if (DialogueManager.GetInstance().dialogueIsPlaying) {
             isAbleToFlip = false;
@@ -40,8 +38,7 @@ public class NpcFacePlayer : MonoBehaviour
             if (hitObs.collider.tag != "Player" && isAbleToFlip) {
                 Flip();
                 isAbleToFlip = false;
-                StartCoroutine(Wait(3f));
-                isAbleToFlip = true;
+                StartCoroutine(Wait(1f));
             }
         }
     }
@@ -55,6 +52,7 @@ public class NpcFacePlayer : MonoBehaviour
     //prevents npc from partying if player is colliding but not in sight
     public IEnumerator Wait(float waiting) {
         yield return new WaitForSeconds(waiting);
+        isAbleToFlip = true;
     }
 
     void OnTriggerEnter2D(Collider2D collision) {

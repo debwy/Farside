@@ -27,6 +27,6 @@ public class ParallaxEffect : MonoBehaviour
         distX = (cam.transform.position.x * parallaxEffect);
         distY = (cam.transform.position.y * parallaxEffect);
 
-        transform.position = new Vector3(startX + distX, transform.position.y, transform.position.z);
+        transform.position = new Vector3(startX + distX, startY + distY, transform.position.z);
     }
 }

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
-    internal PlayerMain player;
+    [SerializeField] internal PlayerMain player;
+    [SerializeField] internal PhysicsMaterial2D material;
 
-    public float moveSpeed = 1;
-    public float jumpForce = 1;
+    public float moveSpeed = 1.6f;
+    public float slopeSpeed = 2.4f;
+    public float jumpForce = 1f;
 
     public float dashTime = 0.05f;
     public float dashSpeed = 50;
@@ -18,13 +19,19 @@ public class PlayerMovement : MonoBehaviour
     private bool isDashing;
     private float dashTimeLeft;
     private float lastImageXPos;
-    private float lastDash = -100;
+    private float lastDash = -100f;
+
+    [SerializeField] private float jumpCooldown = 0.5f;
+    private float lastJump = -100f;
+
+    private float speedToMove;
 
     //might want to use raycast/collision(?), either way, TODO (or remove)
     private bool isTouchingWall = false;
 
     void Start()
     {
+        speedToMove = moveSpeed;
     }
 
     internal void TryDash() {
@@ -71,14 +78,23 @@ public class PlayerMovement : MonoBehaviour
     }
 
     internal void HorizontalMovement(float moveHorizontal, bool isJumping) {
+        if (player.input.SlopeCheck()) {
+            speedToMove = slopeSpeed;
+        } else {
+            speedToMove = moveSpeed;
+        }
+
         if (isJumping) {
-            player.body.AddForce(new Vector2(moveHorizontal * moveSpeed/3, 0f), ForceMode2D.Impulse);
+            player.body.AddForce(new Vector2(moveHorizontal * speedToMove/3, 0f), ForceMode2D.Impulse);
          } else {
-            player.body.AddForce(new Vector2(moveHorizontal * moveSpeed, 0f), ForceMode2D.Impulse);
+            player.body.AddForce(new Vector2(moveHorizontal * speedToMove, 0f), ForceMode2D.Impulse);
          }
     }
 
-    internal void VerticalMovement(float moveVertical) {
-        player.body.AddForce(new Vector2(0f, moveVertical * jumpForce), ForceMode2D.Impulse);
+    internal void VerticalMovement() {
+        if (Time.time >= lastJump + jumpCooldown) {
+            lastJump = Time.time;
+            player.body.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+        }
     }
 }

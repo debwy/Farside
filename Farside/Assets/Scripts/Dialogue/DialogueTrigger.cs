@@ -12,11 +12,13 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private TextAsset inkJSON;
 
     private bool playerInRange;
+    private bool playerAbleToDialogue;
 
     //initial state: player not in range
     private void Awake() 
     {
         playerInRange = false;
+        playerAbleToDialogue = true;
         visualCue.SetActive(false);
     }
 
@@ -27,11 +29,15 @@ public class DialogueTrigger : MonoBehaviour
         //trigger dialogue until current dialogue has finished
         if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
-            visualCue.SetActive(true);
+            playerAbleToDialogue = GameObject.Find("Player").GetComponent<PlayerMain>().IsAbleToDialogue();
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+            if (playerAbleToDialogue) {
+                visualCue.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+                }
             }
         }
         else

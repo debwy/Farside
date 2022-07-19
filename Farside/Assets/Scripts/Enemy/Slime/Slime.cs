@@ -97,8 +97,6 @@ public class Slime : MonoBehaviour, IEnemy
     }
 
     public void Die() {
-        Debug.Log("Enemy died");
-
         died = true;
         canContact = false;
 
