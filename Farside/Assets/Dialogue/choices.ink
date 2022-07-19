@@ -1,29 +1,28 @@
 -> main
 
 === main ===
-Welcome to Farside!
+Ah, the new face in town.
 What would you like to know?
-    + [About the village]
-        -> chosen("the village, for there is none!")
-    + [About you]
-        -> chosen("myself, other than the fact that I'm quirky.")
-    + [About the slimes]
-        -> chosen("the slimes. Someone like me wouldn't be fighting slimes.")
+-> questions
+
+=== questions ===
+    * [About the village]
+        Our village is a peaceful one.
+        ** [And?]
+        And we...don't tolerate behaviour such as...murder.
+        That's all you need to know. What else?
+        -> questions
         
-=== chosen(answer) ===
-I'm afraid I can't tell you about {answer}
+    * [About you]
+        I'm afraid I can't tell you much about myself. Classified info and all that. 
+        Why don't you share about yourself, hm? Anything you remember, little amnesiac?
+        ** [Nothing...]
+        Well, guess that was worth a try.
+        -> questions
+        
+    * [Um...that's about it]
+        You'd better be careful, little one...
+        -> DONE
+        
 -> END
 
-//  -> enemies
-/* 
-=== enemies ===
-I can tell you what I know about the enemies here, though! Ask away.
-    + [Pink slimes]
-        They're made up of elemental energy. As a result, they're super light and airy! I wonder if you can push them around...?
-        -> enemies
-        
-    + [Red slimes]
-        Be careful of these ones - they're immune to fire. The last time we threw bombs at 'em, nothing happened! Your best bet is to get up close and whack 'em silly.
-        -> enemies
-
--> END */        

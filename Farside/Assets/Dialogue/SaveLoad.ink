@@ -1,9 +1,8 @@
 The campfire crackles merrily. Save your progress?
  * [Yes]
     #save:yes
-    Game was saved.
+    Your adventure has been saved.
  * [No]
-    Game was not saved.
-    
+    Your adventure has not been saved.
 
 -> END

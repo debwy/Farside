@@ -1,2 +1,5 @@
-Welcome to Farside.
-I hope you enjoy your stay!
+Welcome to Farside, little human.
+
+ * [ I have some questions...]
+
+Our territory is dark at night. You'd best be on your guard...

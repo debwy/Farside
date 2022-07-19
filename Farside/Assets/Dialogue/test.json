@@ -1,1 +1,1 @@
-﻿{"inkVersion":20,"root":[["^Welcome to Farside.","\n","^I hope you enjoy your stay!","\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}
+﻿{"inkVersion":20,"root":[["^Welcome to Farside, little human.","\n","ev","str","^ I have some questions...","/str","/ev",{"*":"0.c-0","flg":20},{"c-0":["\n","^Our territory is dark at night. You'd best be on your guard...","\n",{"->":"0.g-0"},{"#f":5}],"g-0":["done",{"#f":5}]}],"done",{"#f":1}],"listDefs":{}}
