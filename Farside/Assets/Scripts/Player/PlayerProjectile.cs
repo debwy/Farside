@@ -25,7 +25,7 @@ public class PlayerProjectile : MonoBehaviour
                 int dmg = GameObject.Find("Player").GetComponent<PlayerMain>().GetShotAttackDmg();
                 hit.GetComponent<IEnemy>().TakeRangedDamage(dmg);
             }
-            if (!hit.gameObject.CompareTag("Player") && !hit.gameObject.CompareTag("PlayerProjectile") && !hit.gameObject.CompareTag("RangeMarker")) {
+            if (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Ground") || hit.gameObject.CompareTag("EnemyProjectile") || hit.gameObject.CompareTag("Trap")) {
                 Destroy(gameObject);
             }
         }

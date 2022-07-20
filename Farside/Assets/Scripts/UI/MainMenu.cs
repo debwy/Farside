@@ -8,7 +8,7 @@ public class MainMenu : Menu, IDataPersistence
     [SerializeField] private Button newGameButton;
     [SerializeField] private Button continueGameButton;
     [SerializeField] private Button quitGameButton;
-    private int newGameFirstScene = (int) Loader.Scenes.Map1;
+    private int newGameFirstScene = (int) Loader.Scenes.Opening;
     private int sceneToBeLoaded = (int) Loader.Scenes.Map1;
 
     private void Start() {

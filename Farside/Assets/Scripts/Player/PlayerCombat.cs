@@ -19,16 +19,18 @@ public class PlayerCombat : MonoBehaviour
     public PlayerProjectile projectile;
     public Transform launcher;
 
-    [SerializeField] private float attackCooldown = 2f;
+    //[SerializeField] private float attackCooldown = 1f;
     private float lastAttack1 = -100f;
     private float lastAttack2 = -100f;
-    private float lastAttackRefill = -100f;
+    //private float lastAttackRefill = -100f;
     [SerializeField] private float rangedCooldown = 2f;
     private float lastRanged = -100f;
 
     [SerializeField] private int rangedCount = 3;
-    [SerializeField] private int meleeCount = 3;
+    //[SerializeField] private int meleeCount = 3;
     [SerializeField] private float chainedAttackTime = 0.8f;
+    private bool canShoot = true;
+    private bool isDead = false;
 
     void Start()
     {
@@ -41,7 +43,7 @@ public class PlayerCombat : MonoBehaviour
             lastRanged = Time.time;
             rangedCount = 3;
         }
-        if (rangedCount > 0) {
+        if (rangedCount > 0 && canShoot) {
             rangedCount--;
             Instantiate(projectile, launcher.position, launcher.rotation);
             player.ani.SetTrigger("Shoot");
@@ -53,11 +55,14 @@ public class PlayerCombat : MonoBehaviour
     }
 
     internal void MeleeAttack() {
+        /*
         if (meleeCount < 3 && Time.time >= lastAttackRefill + attackCooldown) {
             lastAttackRefill = Time.time;
             meleeCount = 3;
         }
         if (meleeCount > 0) {
+        */
+        canShoot = false;
             if (Time.time - lastAttack2 < chainedAttackTime) {
                 player.ani.SetTrigger("Attack3");
             } else if (Time.time - lastAttack1 < chainedAttackTime) {
@@ -67,11 +72,14 @@ public class PlayerCombat : MonoBehaviour
                 player.ani.SetTrigger("Attack");
                 lastAttack1 = Time.time;
             }
+        /*
             meleeCount--;
         }
+        */
     }
 
     private void MeleeCollect() {
+        canShoot = true;
         //detects items in range of atk & collects them in an array
         Collider2D[] hitThings = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, attackableLayers);
         //calls specific methods for all
@@ -118,16 +126,19 @@ public class PlayerCombat : MonoBehaviour
     }
 
     public void Die() {
-        Debug.Log("Player died");
-        player.ani.SetBool("Died", true);
+        if (!isDead) {
+            isDead = true;
+            Debug.Log("Player died");
+            player.ani.SetBool("Died", true);
 
-        player.body.velocity = Vector2.zero;
-        player.body.angularVelocity = 0;
+            player.body.velocity = Vector2.zero;
+            player.body.angularVelocity = 0;
 
-        player.enabled = false;
+            player.enabled = false;
 
-        //TODO sends player to game over screen
-        StartCoroutine (SendingToGameOver());
+            //TODO sends player to game over screen
+            StartCoroutine (SendingToGameOver());
+        }
     }
 
     private IEnumerator SendingToGameOver() {

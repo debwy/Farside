@@ -114,7 +114,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Bat_Attack_FX_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 26
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 527649b0dcfe039468c528a6beeb402e
+      internalID: 2086974489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bat_Attack_FX_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 24
+        width: 15
+        height: 13
+      alignment: 9
+      pivot: {x: 0.3612096, y: 0.5160142}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21139e4eb27704445b2236a1f2d73629
+      internalID: 1756266935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bat_Attack_FX_2
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 23
+        width: 10
+        height: 10
+      alignment: 9
+      pivot: {x: 0.18772125, y: 0.5208187}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30111a0dac0efca449e2f1cb14c8425a
+      internalID: -722786504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bat_Attack_FX_3
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 32
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6c575405d9c7ba4b84efa6d14353096
+      internalID: 357871802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bat_Attack_FX_4
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 24
+        width: 5
+        height: 8
+      alignment: 9
+      pivot: {x: 0.040283203, y: 0.52612066}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf30ba11fbde3a94baf3577afc25d0f6
+      internalID: 2021272672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -125,7 +230,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bat_Attack_FX_3: 357871802
+      Bat_Attack_FX_1: 1756266935
+      Bat_Attack_FX_4: 2021272672
+      Bat_Attack_FX_2: -722786504
+      Bat_Attack_FX_0: 2086974489
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

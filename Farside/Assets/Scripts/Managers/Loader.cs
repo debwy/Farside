@@ -9,12 +9,13 @@ public static class Loader
 
     public enum Scenes {
         MainMenu,
+        Opening,
         Map1,
         Map1a
     }
 
     public static void LoadScene(Scenes scene) {
-        //GameObject.Find("SceneTransition").GetComponent<SceneTransition>().ExitSceneTransition();
+        //GameObject.Find("SceneTransition").GetComponent<SceneTransition>().ExitSceneTransition(); <-- not working
         DataPersistenceManager.instance.SaveGame();
         int temp = (int) scene;
         SceneManager.LoadSceneAsync(temp);

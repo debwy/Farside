@@ -212,6 +212,7 @@ public class Golem : MonoBehaviour, IEnemy
 
     internal void ResetHealth() {
         currentHealth = maxHealth;
+        healthbar.SetHealth(currentHealth);
     }
 
     private void NoTouchy() {

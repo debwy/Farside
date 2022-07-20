@@ -3908,7 +3908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 117177476060907488, guid: cf490ca1e64c0c34192bbc7161ee6314, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 117177476060907488, guid: cf490ca1e64c0c34192bbc7161ee6314, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3985,6 +3985,22 @@ PrefabInstance:
     - target: {fileID: 117177476060907492, guid: cf490ca1e64c0c34192bbc7161ee6314, type: 3}
       propertyPath: m_Name
       value: Menu Overlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062463847627474845, guid: cf490ca1e64c0c34192bbc7161ee6314, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2706.8638
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062463847627474845, guid: cf490ca1e64c0c34192bbc7161ee6314, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1522.2533
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062463847627474845, guid: cf490ca1e64c0c34192bbc7161ee6314, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.6743164
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062463847627474845, guid: cf490ca1e64c0c34192bbc7161ee6314, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.94140625
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf490ca1e64c0c34192bbc7161ee6314, type: 3}
@@ -4890,7 +4906,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1700568921
 PrefabInstance:
@@ -5157,7 +5173,7 @@ GameObject:
   - component: {fileID: 1765844005}
   - component: {fileID: 1765844004}
   m_Layer: 0
-  m_Name: Light 2D
+  m_Name: Global light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5254,7 +5270,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1783158423 stripped
 Transform:
@@ -11952,7 +11968,7 @@ RectTransform:
   m_Children:
   - {fileID: 2110551231}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

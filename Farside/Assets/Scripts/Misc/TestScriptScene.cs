@@ -6,7 +6,7 @@ public class TestScriptScene : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D hit) {
         if (hit.CompareTag("Player")) {
-            if (Loader.CurrentSceneIndex() == 1) {
+            if (Loader.CurrentSceneIndex() == (int) Loader.Scenes.Map1) {
                 Loader.LoadScene(Loader.Scenes.Map1a);
             } else {
                 Loader.LoadScene(Loader.Scenes.Map1);

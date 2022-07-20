@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] internal PlayerMain player;
     [SerializeField] internal PhysicsMaterial2D material;
 
-    public float moveSpeed = 1.6f;
+    public float moveSpeed = 1.4f;
     public float slopeSpeed = 2.4f;
     public float jumpForce = 1f;
 
