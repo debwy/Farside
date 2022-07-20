@@ -240,6 +240,8 @@ public class DialogueManager : MonoBehaviour
     {
         if (canContinueToNextLine)
         {
+            //play sound: choice
+            FindObjectOfType<AudioManager>().Play("StartDialogue");
             currentStory.ChooseChoiceIndex(choiceIndex);
             ContinueStory();
         }

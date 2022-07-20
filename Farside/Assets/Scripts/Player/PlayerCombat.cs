@@ -131,6 +131,8 @@ public class PlayerCombat : MonoBehaviour
     }
 
     private IEnumerator SendingToGameOver() {
+        //play sound: death
+        FindObjectOfType<AudioManager>().Play("PlayerDeath");
         yield return new WaitForSeconds(1);
         player.GameOver();
     }

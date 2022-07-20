@@ -1,8 +1,8 @@
 The campfire crackles merrily. Save your progress?
  * [Yes]
     #save:yes
-    Your adventure has been saved.
+    Your memories have been recorded.
  * [No]
-    Your adventure has not been saved.
+    Your memories have not been recorded.
 
 -> END

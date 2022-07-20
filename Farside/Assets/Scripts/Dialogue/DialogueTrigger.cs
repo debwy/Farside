@@ -36,6 +36,7 @@ public class DialogueTrigger : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    //FindObjectOfType<AudioManager>().Play("StartDialogue");
                     DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
                 }
             }
