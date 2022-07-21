@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
+using Ink.UnityIntegration;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Params")]
     //[SerializeField] private float typingSpeed = 0.001f;
+
+    [Header("Globals Ink File")]
+    [SerializeField] private InkFile globalsInkFile;
 
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
@@ -38,7 +42,7 @@ public class DialogueManager : MonoBehaviour
 
     private const string SAVE_TAG = "save";
 
-
+    private DialogueVariables dialogueVariables;
 
     //initialise the instance
     private void Awake()
@@ -48,6 +52,8 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning("Found more than one Dialogue Manager in the scene");
         }
         instance = this;
+
+        dialogueVariables = new DialogueVariables(globalsInkFile.filePath);
     }
 
     public static DialogueManager GetInstance()
@@ -94,13 +100,22 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
+        //monitor dialogue variable changes
+        dialogueVariables.StartListening(currentStory);
+
+        //play sound: click
+        FindObjectOfType<AudioManager>().Play("DialogueClick");
+
         ContinueStory();
     }
 
     private IEnumerator ExitDialogueMode()
     {
         yield return new WaitForSeconds(0f);
-        
+
+        //stop monitoring for dialogue variable changes in ink
+        dialogueVariables.StopListening(currentStory);
+
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
@@ -241,11 +256,37 @@ public class DialogueManager : MonoBehaviour
         if (canContinueToNextLine)
         {
             //play sound: choice
-            FindObjectOfType<AudioManager>().Play("StartDialogue");
+            FindObjectOfType<AudioManager>().Play("DialogueChoice");
+
             currentStory.ChooseChoiceIndex(choiceIndex);
             ContinueStory();
         }
         
+    }
+
+    public Ink.Runtime.Object GetVariableState(string variableName)
+    {
+        Ink.Runtime.Object variableValue = null;
+        dialogueVariables.variables.TryGetValue(variableName, out variableValue);
+        if (variableValue == null)
+        {
+            Debug.LogWarning("Ink Variable was found to be null: " + variableName);
+        }
+        return variableValue;
+    }
+
+    // this method will allow a variable defined in globals.ink to be set using C# code
+    public void SetVariableState(string variableName, Ink.Runtime.Object variableValue)
+    {
+        if (dialogueVariables.variables.ContainsKey(variableName))
+        {
+            dialogueVariables.variables.Remove(variableName);
+            dialogueVariables.variables.Add(variableName, variableValue);
+        }
+        else
+        {
+            Debug.LogWarning("Tried to update variable that wasn't initialized by globals.ink: " + variableName);
+        }
     }
 
 }
