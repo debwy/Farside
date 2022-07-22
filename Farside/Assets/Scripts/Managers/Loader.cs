@@ -39,7 +39,7 @@ public static class Loader
         if (previousScene == (int) Scenes.Map1 && currentScene == (int) Scenes.Map1a) {
             GameObject.Find("Player").transform.position = new Vector3(-8.29f, 1.911422f, 0f);
         } else if (previousScene == (int) Scenes.Map1a && currentScene == (int) Scenes.Map1) {
-            GameObject.Find("Player").transform.position = new Vector3(67.41463f, -6.091377f, 0f);
+            GameObject.Find("Player").transform.position = new Vector3(90.47866f, 2.92555f, 0f);
         }
     }
 

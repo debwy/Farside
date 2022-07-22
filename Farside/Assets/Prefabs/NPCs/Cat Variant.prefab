@@ -8,12 +8,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3654780676920622022, guid: 656b6f2457164024797373422938003f, type: 3}
+      propertyPath: m_Size.x
+      value: 2.862163
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654780676920622022, guid: 656b6f2457164024797373422938003f, type: 3}
       propertyPath: m_Size.y
-      value: 0.54481035
+      value: 0.57604474
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654780676920622022, guid: 656b6f2457164024797373422938003f, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.14987874
       objectReference: {fileID: 0}
     - target: {fileID: 3654780676920622022, guid: 656b6f2457164024797373422938003f, type: 3}
       propertyPath: m_Offset.y
-      value: 0.25627837
+      value: -0.009214193
       objectReference: {fileID: 0}
     - target: {fileID: 3654780676920622022, guid: 656b6f2457164024797373422938003f, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
@@ -81,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4224089114256221266, guid: 656b6f2457164024797373422938003f, type: 3}
       propertyPath: m_Name
-      value: Cat
+      value: Cat Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4224089114878794224, guid: 656b6f2457164024797373422938003f, type: 3}
       propertyPath: m_LocalScale.x
@@ -95,6 +103,14 @@ PrefabInstance:
       propertyPath: inkJSON
       value: 
       objectReference: {fileID: 4900000, guid: 4cc71f3640f6fca46bb49309aee8c6af, type: 3}
+    - target: {fileID: 4224089114878794231, guid: 656b6f2457164024797373422938003f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7572869
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224089114878794231, guid: 656b6f2457164024797373422938003f, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.053306893
+      objectReference: {fileID: 0}
     - target: {fileID: 4224089114922829083, guid: 656b6f2457164024797373422938003f, type: 3}
       propertyPath: m_Sprite
       value: 

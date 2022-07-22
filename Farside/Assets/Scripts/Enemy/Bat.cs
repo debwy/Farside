@@ -47,6 +47,7 @@ public class Bat : MonoBehaviour, IEnemy
     void FixedUpdate() {
         player = GameObject.Find("Player").transform;
 
+        if (!isDead) {
         if (isDiving && Vector3.Distance(transform.position, aggroTarget) > 0.3f) {
             DiveTowards(aggroTarget);
         } else {
@@ -68,6 +69,7 @@ public class Bat : MonoBehaviour, IEnemy
             } else if (currentHealth != maxHealth) {
                 ResetHealth();
             }
+        }
         }
         }
     }
@@ -123,11 +125,20 @@ public class Bat : MonoBehaviour, IEnemy
         return Vector3.Distance(player.position, transform.position);
     }
 
+    private float lastHit = -100f;
+    [SerializeField] private float hitCooldown = 0.5f;
+    private float lastHitAni = -100f;
+    [SerializeField] private float hitAniCooldown = 2.5f;
+
     public void TakeDamage(int damage) {
-        if (currentHealth > 0) {
+        if (currentHealth > 0 && Time.time >= lastHit + hitCooldown) {
+            lastHit = Time.time;
             currentHealth -= damage;
             healthbar.SetHealth(currentHealth);
-            ani.SetTrigger("Hit");
+            if (Time.time >= lastHit + hitAniCooldown) {
+                lastHitAni = Time.time;
+                ani.SetTrigger("Hit");
+            }
         }
         if(currentHealth <= 0) {
             Die();
@@ -154,12 +165,17 @@ public class Bat : MonoBehaviour, IEnemy
     }
 
     public void Die() {
-        isDead = true;
-        body.velocity = Vector2.zero;
-        body.angularVelocity = 0;
-        ani.SetBool("Died", true);
-        col.isTrigger = false;
-        body.bodyType = RigidbodyType2D.Dynamic;
+        if (!isDead) {
+            isDead = true;
+            EventManager.instance.StartBatDeathEvent();
+            if (body.bodyType == RigidbodyType2D.Kinematic) {
+                body.velocity = Vector2.zero;
+                body.angularVelocity = 0;
+            }
+            ani.SetBool("Died", true);
+            col.isTrigger = false;
+            body.bodyType = RigidbodyType2D.Dynamic;
+        }
     }
 
     public void DespawnEnemy() {

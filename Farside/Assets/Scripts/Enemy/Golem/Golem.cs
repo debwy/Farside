@@ -5,6 +5,7 @@ using System;
 
 public class Golem : MonoBehaviour, IEnemy
 {
+    [SerializeField] private int golemId;
     public float speed = 0.5f;
     public int maxHealth = 200;
     internal int currentHealth;
@@ -169,11 +170,17 @@ public class Golem : MonoBehaviour, IEnemy
         isPlayerInAggroRange = input;
     }
 
+    private float lastHitAni = -100f;
+    [SerializeField] private float hitAniCooldown = 2.5f;
+
     public void TakeDamage(int damage) {
         if (currentHealth > 0) {
             currentHealth -= damage;
             healthbar.SetHealth(currentHealth);
-            ani.SetTrigger("Hit");
+            if (Time.time >= lastHitAni + hitAniCooldown) {
+                lastHitAni = Time.time;
+                ani.SetTrigger("Hit");
+            }
         }
         if(currentHealth <= 0) {
             Die();
@@ -193,7 +200,7 @@ public class Golem : MonoBehaviour, IEnemy
     }
 
     public void Heal(int healing) {
-        if (currentHealth < maxHealth) {
+        if (!died && currentHealth < maxHealth) {
             if (currentHealth + healing <= maxHealth) {
                 currentHealth += healing;
             } else {
@@ -231,11 +238,14 @@ public class Golem : MonoBehaviour, IEnemy
     }
 
     public void Die() {
+        if (!died) {
         died = true;
         canContact = false;
+        EventManager.instance.StartGolemDeathEvent(golemId);
         body.velocity = Vector2.zero;
         body.angularVelocity = 0;
         ani.SetBool("Died", true);
+        }
     }
 
     public void DespawnEnemy() {

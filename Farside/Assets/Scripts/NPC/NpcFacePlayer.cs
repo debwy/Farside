@@ -7,11 +7,12 @@ public class NpcFacePlayer : MonoBehaviour
 
     public GameObject obstacleRay;
     private RaycastHit2D hitObs;
+    public GameObject obstacleRayAlt;
+    private RaycastHit2D hitObsAlt;
 
     [SerializeField]
     private bool isFacingRight = true;
     private int rightInt;
-    private bool isAbleToFlip = true;
     private bool isCheckingForPlayer = false;
 
     void Start()
@@ -28,17 +29,14 @@ public class NpcFacePlayer : MonoBehaviour
         hitObs = Physics2D.Raycast (obstacleRay.transform.position, rightInt * Vector2.right);
         Debug.DrawRay (obstacleRay.transform.position, rightInt * Vector2.right * hitObs.distance, Color.red);
 
-        if (DialogueManager.GetInstance().dialogueIsPlaying) {
-            isAbleToFlip = false;
-        } else {
-            isAbleToFlip = true;
-        }
+        hitObsAlt = Physics2D.Raycast (obstacleRayAlt.transform.position, rightInt * Vector2.left);
+        Debug.DrawRay (obstacleRayAlt.transform.position, rightInt * Vector2.left * hitObsAlt.distance, Color.red);
 
         if (isCheckingForPlayer) {
-            if (hitObs.collider.tag != "Player" && isAbleToFlip) {
-                Flip();
-                isAbleToFlip = false;
-                StartCoroutine(Wait(1f));
+            if (!hitObs.collider.CompareTag("Player")) {
+                if(hitObsAlt.collider.CompareTag("Player")) {
+                    Flip();
+                }
             }
         }
     }
@@ -49,20 +47,14 @@ public class NpcFacePlayer : MonoBehaviour
         rightInt *= -1;
     }
 
-    //prevents npc from partying if player is colliding but not in sight
-    public IEnumerator Wait(float waiting) {
-        yield return new WaitForSeconds(waiting);
-        isAbleToFlip = true;
-    }
-
     void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag == "Player") {
+        if (collision.CompareTag("Player")) {
             isCheckingForPlayer = true;
         }
     }
 
     void OnTriggerExit2D(Collider2D collision) {
-        if (collision.tag == "Player") {
+        if (collision.CompareTag("Player")) {
             isCheckingForPlayer = false;
         }
     }

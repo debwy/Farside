@@ -76,7 +76,7 @@ public class Slime : MonoBehaviour, IEnemy
     }
 
     public void Heal(int healing) {
-        if (currentHealth < maxHealth) {
+        if (!died && currentHealth < maxHealth) {
             if (currentHealth + healing <= maxHealth) {
                 currentHealth += healing;
             } else {
@@ -97,15 +97,17 @@ public class Slime : MonoBehaviour, IEnemy
     }
 
     public void Die() {
+        if (!died) {
         died = true;
         canContact = false;
+        EventManager.instance.StartSlimeDeathEvent();
 
         body.velocity = Vector2.zero;
         body.angularVelocity = 0;
 
         //play die animation
         ani.SetBool("Died", true);
-
+        }
     }
 
     private void DespawnEnemy() {

@@ -18,6 +18,11 @@ public class GameData
     public int currentHealth;
     public int shotDmgDivide;
     public int lastSavedScene;
+    public int slimeDeaths;
+    public int golemDeaths;
+    public int batDeaths;
+    public SerializableDictionary<string, bool> chestsOpened;
+    public int chestOpenCount;
 
     public GameData()
     {
@@ -27,6 +32,11 @@ public class GameData
         currentHealth = maxHealth;
         shotDmgDivide = 5;
         lastSavedScene = (int) Loader.Scenes.Map1;
+        slimeDeaths = 0;
+        golemDeaths = 0;
+        batDeaths = 0;
+        chestsOpened = new SerializableDictionary<string, bool>();
+        chestOpenCount = 0;
     }
     
 }

@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 966737865}
   - component: {fileID: 966737867}
   - component: {fileID: 966737868}
+  - component: {fileID: 5334033636722119366}
   m_Layer: 0
   m_Name: Save/Load
   m_TagString: Untagged
@@ -157,6 +158,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visualCue: {fileID: 283622849}
   inkJSON: {fileID: 4900000, guid: bda3a6271ae7ff64ba6593fccf6b6b57, type: 3}
+--- !u!114 &5334033636722119366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966737864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c03d402fec9ad4d9bce810dca324fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healingAmount: 5
+  healIntervals: 0.5
 --- !u!1 &3642507771804847243
 GameObject:
   m_ObjectHideFlags: 0
