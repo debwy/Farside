@@ -8,7 +8,7 @@ using Ink.UnityIntegration;
 
 public class DialogueManager : MonoBehaviour
 {
-    const string kAlphaCode = "<color=#00000000>";
+    //const string kAlphaCode = "<color=#00000000>";
     const float kMaxTextTime = 0.02f;
     public static int TextSpeed = 2;
 
@@ -82,10 +82,10 @@ public class DialogueManager : MonoBehaviour
         if (!dialogueIsPlaying)
         {
             return;
-        } 
+        }
 
-        if (canContinueToNextLine && 
-            currentStory.currentChoices.Count == 0 && 
+        if (canContinueToNextLine &&
+            currentStory.currentChoices.Count == 0 &&
             (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)))
         {
             ContinueStory();
@@ -104,7 +104,7 @@ public class DialogueManager : MonoBehaviour
         dialogueVariables.StartListening(currentStory);
 
         //play sound: click
-        FindObjectOfType<AudioManager>().Play("DialogueClick");
+        //FindObjectOfType<AudioManager>().Play("DialogueClick");
 
         ContinueStory();
     }
@@ -125,7 +125,7 @@ public class DialogueManager : MonoBehaviour
     private void ContinueStory()
     {
         HandleTags(currentStory.currentTags);
-        
+
         if (currentStory.canContinue)
         {
             if (displayLineCoroutine != null)
@@ -135,7 +135,7 @@ public class DialogueManager : MonoBehaviour
 
             displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
 
-            
+
         }
         else //cant continue, empty JSON file
         {
@@ -172,32 +172,37 @@ public class DialogueManager : MonoBehaviour
     //typing effect
     private IEnumerator DisplayLine(string line)
     {
-        dialogueText.text = "";
+        dialogueText.text = line;
+        dialogueText.maxVisibleCharacters = 0;
 
         continueIcon.SetActive(false);
         HideChoices();
 
         canContinueToNextLine = false;
 
+        bool isAddingRichTextTag = false;
+
         string originalText = line;
-        string displayedText = "";
-        int alphaIndex = 0;
 
         foreach (char letter in line.ToCharArray())
         {
-            //if player presses space/LMB, show full text immediately
-            /*if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
+            //check for rich text tag, if found, add immediately
+            if (letter == '<' || isAddingRichTextTag)
             {
-                dialogueText.text = line;
-                break;
-            } */
-            alphaIndex++;
-            dialogueText.text = originalText;
-            displayedText = dialogueText.text.Insert(alphaIndex, kAlphaCode);
-            dialogueText.text = displayedText;
+                isAddingRichTextTag = true;
 
-            //dialogueText.text += letter;
-            yield return new WaitForSeconds(kMaxTextTime / TextSpeed);
+                if (letter == '>')
+                {
+                    isAddingRichTextTag = false;
+                }
+            }
+            else
+            {
+                dialogueText.maxVisibleCharacters++;
+
+                yield return new WaitForSeconds(kMaxTextTime / TextSpeed);
+            }
+
         }
 
         continueIcon.SetActive(true);
@@ -236,7 +241,7 @@ public class DialogueManager : MonoBehaviour
             index += 1;
         }
 
-        for (int i = index; i < choices.Length; i+=1)
+        for (int i = index; i < choices.Length; i += 1)
         {
             choices[i].gameObject.SetActive(false);
         }
@@ -261,7 +266,7 @@ public class DialogueManager : MonoBehaviour
             currentStory.ChooseChoiceIndex(choiceIndex);
             ContinueStory();
         }
-        
+
     }
 
     public Ink.Runtime.Object GetVariableState(string variableName)

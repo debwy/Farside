@@ -14,8 +14,8 @@ What would you like to know?
         -> questions
         
     * [About you]
-        I'm afraid I can't tell you much about myself. Classified info and all that. 
-        Why don't you share about yourself, hm? Anything you remember, little amnesiac?
+        I'm afraid I can't tell you much about myself. Why? Because I don't feel like it. 
+        Why don't you share about yourself, hm? Anything you remember, human amnesiac?
         ** [Nothing...]
         Well, guess that was worth a try.
         -> questions

@@ -2023,7 +2023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7846471662078893615, guid: b7dd3c39f058a2140ac66bcad7b21bb7, type: 3}
       propertyPath: sounds.Array.size
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7846471662078893615, guid: b7dd3c39f058a2140ac66bcad7b21bb7, type: 3}
       propertyPath: sounds.Array.data[7].clip
@@ -38946,6 +38946,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6754467344922822820, guid: 664e1a83d47a32940ba70c719f37a8eb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754467344922822820, guid: 664e1a83d47a32940ba70c719f37a8eb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6754467344979448904, guid: 664e1a83d47a32940ba70c719f37a8eb, type: 3}
       propertyPath: inkJSON
       value: 
@@ -38968,7 +38976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6754467344979448910, guid: 664e1a83d47a32940ba70c719f37a8eb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 664e1a83d47a32940ba70c719f37a8eb, type: 3}

@@ -7,7 +7,7 @@ INCLUDE globals.ink
 }
 
 === main ===
-SQUEAK! w-w-who are you? w-why are you here?
+<size=45>SQUEAK!</size> w-w-who are you? w-why are you here?
 i..i climbed and jumped all the way here to finally find some peace...
 and what do i see?! A HUMAN! a human who jumped endlessly to meet me!
 are you crazy? huh?!
@@ -24,7 +24,7 @@ u-um...just leave! please! go!
 ~ helped_global += 1 //assigns chosen purpose into globals.ink
 a-a favour? just say it! say it already!
 o-ok, ok, i got it, ill give you ten recommendations or anything you need, just go!!!
-except i dont think they will count it as ten...but you know...ill try...
+<size=35>except i dont think they will count it as ten...but you know...ill try...</size>
 -> END
 
 === cancelled ===
