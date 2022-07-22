@@ -37,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6930122694965717508, guid: cea950ff3b9b0804f967eaec919f19f7, type: 3}
       propertyPath: m_Name
-      value: PF Village Props - Chest Golden
+      value: Chests(may have golem)
       objectReference: {fileID: 0}
     - target: {fileID: 6930122694965717508, guid: cea950ff3b9b0804f967eaec919f19f7, type: 3}
       propertyPath: m_TagString
@@ -106,6 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888bd370988c89b4ba2323631d2b80ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: a87d1c4c-b23a-49bb-a012-da06438c4b8b
+  id: 
   chestId: 1
-  hasAssociatedGolem: 0
+  hasAssociatedGolem: 1

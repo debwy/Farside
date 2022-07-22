@@ -8,21 +8,24 @@ public class Chest : MonoBehaviour, IDataPersistence
     [SerializeField] private int chestId;
     [SerializeField] private bool hasAssociatedGolem;
     private bool openable;
-    private Animator ani;
+    internal Animator ani;
     
 
     [ContextMenu("Generate guid for id")]
     private void GenerateGuid() {
         id = System.Guid.NewGuid().ToString();
-        openable = !hasAssociatedGolem;
     }
 
     private bool isOpened = false;
 
+    void Awake() {
+        ani = GetComponent<Animator>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        ani = GetComponent<Animator>();
+        openable = !hasAssociatedGolem;
         EventManager.instance.GolemDeathEvent += OpenChest;
     }
 
@@ -48,6 +51,7 @@ public class Chest : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data) {
         data.chestsOpened.TryGetValue(id, out isOpened);
         if (isOpened) {
+            openable = false;
             ani.SetBool("Open", true);
         }
     }

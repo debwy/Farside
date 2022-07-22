@@ -29,12 +29,12 @@ public class NpcFacePlayer : MonoBehaviour
         hitObs = Physics2D.Raycast (obstacleRay.transform.position, rightInt * Vector2.right);
         Debug.DrawRay (obstacleRay.transform.position, rightInt * Vector2.right * hitObs.distance, Color.red);
 
-        hitObsAlt = Physics2D.Raycast (obstacleRayAlt.transform.position, rightInt * Vector2.left);
+        hitObsAlt = Physics2D.Raycast (obstacleRayAlt.transform.position, -rightInt * Vector2.right);
         Debug.DrawRay (obstacleRayAlt.transform.position, rightInt * Vector2.left * hitObsAlt.distance, Color.red);
 
         if (isCheckingForPlayer) {
-            if (!hitObs.collider.CompareTag("Player")) {
-                if(hitObsAlt.collider.CompareTag("Player")) {
+            if (hitObs.collider != null && !hitObs.collider.CompareTag("Player")) {
+                if(hitObsAlt.collider != null && hitObsAlt.collider.CompareTag("Player")) {
                     Flip();
                 }
             }
@@ -42,19 +42,20 @@ public class NpcFacePlayer : MonoBehaviour
     }
 
     public void Flip() {
+        Debug.Log("Flip");
         transform.Rotate(0f, 180f, 0f);
         isFacingRight = !isFacingRight;
         rightInt *= -1;
     }
 
-    void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.CompareTag("Player")) {
+    void OnTriggerEnter2D(Collider2D hit) {
+        if (hit != null && hit.CompareTag("Player")) {
             isCheckingForPlayer = true;
         }
     }
 
-    void OnTriggerExit2D(Collider2D collision) {
-        if (collision.CompareTag("Player")) {
+    void OnTriggerExit2D(Collider2D hit) {
+        if (hit != null && hit.CompareTag("Player")) {
             isCheckingForPlayer = false;
         }
     }

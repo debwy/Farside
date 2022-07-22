@@ -44,13 +44,14 @@ public class DataPersistenceManager : MonoBehaviour
     }
 
     public void LoadGame() {
-
         //Loads any saved data from a file (using the data handler)
         //Result would be null if data doesn't exist
         if (isLoadedFromMenu) {
             this.gameData = dataHandler.Load(mainProfileId);
+            Debug.Log("Main profile id");
         } else {
             this.gameData = dataHandler.Load(tempProfileId);
+            Debug.Log("Temp profile id");
         }
 
         //If no data to load, don't continue
