@@ -13,7 +13,7 @@ VAR jumpinghint = 0
 
 //quest 2 - OutpostResponse
 VAR brownmouse = 0 
-VAR killed_global = 0
+VAR totalDeaths = 0
 
 
 //=== random npcs ===//
