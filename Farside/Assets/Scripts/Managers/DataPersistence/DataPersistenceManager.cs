@@ -104,7 +104,7 @@ public class DataPersistenceManager : MonoBehaviour
 
             //Pass the data to other scripts so that they can update it
             foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) {
-                dataPersistenceObj.SaveData(gameData);
+                dataPersistenceObj.SaveData(gameData); 
             }
 
             //Save that data to a file (using the data handler)

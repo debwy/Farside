@@ -23,6 +23,7 @@ public class GameData
     public int batDeaths;
     public SerializableDictionary<string, bool> chestsOpened;
     public int chestOpenCount;
+    public string jsonDialogueSave;
 
     public GameData()
     {
@@ -37,6 +38,7 @@ public class GameData
         batDeaths = 0;
         chestsOpened = new SerializableDictionary<string, bool>();
         chestOpenCount = 0;
+        jsonDialogueSave = "";
     }
     
 }
