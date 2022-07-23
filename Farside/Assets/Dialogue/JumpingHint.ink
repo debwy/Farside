@@ -1,5 +1,6 @@
 INCLUDE globals.ink
 
+{graymouse == 1: -> completed}
 {jumpinghint == 0: -> main | -> final}
 
 === main ===
@@ -27,5 +28,10 @@ Cool, huh? I wonder what it means?
     
     * [No]
 Suit yourself, human!
+-> END
+
+=== completed ===
+Wowie! I somehow get the feeling that you don't need to hear the verse anymore. 
+Maybe some praise is in order!
 
 -> END

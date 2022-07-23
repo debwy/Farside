@@ -5,10 +5,6 @@ VAR brokenobjects_global = 0
 
 
 
-
-
-
-
 //=== npc quest specific===//
 
 //quest 1 - Jumping
@@ -18,4 +14,9 @@ VAR jumpinghint = 0
 //quest 2 - OutpostResponse
 VAR brownmouse = 0 
 VAR killed_global = 0
+
+
+//=== random npcs ===//
+VAR outpost_guard = 0
+
 

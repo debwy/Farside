@@ -30,7 +30,7 @@ But of course, you have a long way to go.
 But alas, it takes more than two to tango. 
 If I say so, then it is so. Get moving, human!
 - else: Hm, you've made it this far! This is rather unexpected. Not that I doubted your abilities, of course. 
-I'll see to it that you get a village permit right away.
+I'll see to it that you get a village permit right away. Once again, a warm welcome to our village of Farside... #end:yes
 }
 
 -> END

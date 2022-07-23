@@ -41,6 +41,7 @@ public class DialogueManager : MonoBehaviour
     private static DialogueManager instance;
 
     private const string SAVE_TAG = "save";
+    private const string END_TAG = "end";
 
     private DialogueVariables dialogueVariables;
 
@@ -161,6 +162,13 @@ public class DialogueManager : MonoBehaviour
                 case SAVE_TAG:
                     Debug.Log("save=" + tagValue);
                     DataPersistenceManager.instance.MenuSaveGame();
+                    break;
+                case END_TAG:
+                    Debug.Log("game has ended:" + tagValue);
+
+                    //input scene transition to Closing
+
+
                     break;
                 default:
                     Debug.LogWarning("Tag came in: " + tag);
