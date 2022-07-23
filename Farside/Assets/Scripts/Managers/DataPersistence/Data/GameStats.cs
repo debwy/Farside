@@ -29,17 +29,17 @@ public class GameStats : MonoBehaviour, IDataPersistence
     }
 
     public void LoadData(GameData data) {
-        Debug.Log("Loading game stats");
-        Debug.Log(slimeDeaths);
         this.slimeDeaths = data.slimeDeaths;
         this.golemDeaths = data.golemDeaths;
         this.batDeaths = data.batDeaths;
         this.chestOpenCount = data.chestOpenCount;
+        //Debug.Log("Loading game stats");
+        //Debug.Log(slimeDeaths);
     }
 
     public void SaveData(GameData data) {
-        Debug.Log("Saving game stats");
-        Debug.Log(slimeDeaths);
+        //Debug.Log("Saving game stats");
+        //Debug.Log(slimeDeaths);
         data.slimeDeaths = this.slimeDeaths;
         data.golemDeaths = this.golemDeaths;
         data.batDeaths = this.batDeaths;
@@ -67,3 +67,22 @@ public class GameStats : MonoBehaviour, IDataPersistence
     }
 
 }
+
+/*
+"{\"flows\"
+:{\"DEFAULT_FLOW\"
+:{\"callstack\"
+:{\"threads\"
+:[{\"callstack\"
+:[{\"cPath\"
+:\"\",\"idx\"
+:0,\"exp\"
+:false,\"type\"
+:0}],\"threadIndex\":0}],
+"threadCounter\":0},\"outputStream\":[],
+\"currentChoices\":[]}},
+\"currentFlowName\"
+:\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\"
+:[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\
+"storySeed\":0,\"previousRandom\":0,\"inkSaveVersion\":9,\"inkFormatVersion\":20}"
+*/

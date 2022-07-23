@@ -48,10 +48,10 @@ public class DataPersistenceManager : MonoBehaviour
         //Result would be null if data doesn't exist
         if (isLoadedFromMenu) {
             this.gameData = dataHandler.Load(mainProfileId);
-            Debug.Log("Main profile id");
+            //Debug.Log("Main profile id");
         } else {
             this.gameData = dataHandler.Load(tempProfileId);
-            Debug.Log("Temp profile id");
+            //Debug.Log("Temp profile id");
         }
 
         //If no data to load, don't continue

@@ -23,6 +23,7 @@ public class GameData
     public int batDeaths;
     public SerializableDictionary<string, bool> chestsOpened;
     public int chestOpenCount;
+    public string jsonDialogueSave;
 
     public GameData()
     {

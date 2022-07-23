@@ -42,7 +42,6 @@ public class NpcFacePlayer : MonoBehaviour
     }
 
     public void Flip() {
-        Debug.Log("Flip");
         transform.Rotate(0f, 180f, 0f);
         isFacingRight = !isFacingRight;
         rightInt *= -1;

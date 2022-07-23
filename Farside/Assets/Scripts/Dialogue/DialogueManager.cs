@@ -6,7 +6,7 @@ using Ink.Runtime;
 using UnityEngine.EventSystems;
 using Ink.UnityIntegration;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager : MonoBehaviour, IDataPersistence
 {
     //const string kAlphaCode = "<color=#00000000>";
     const float kMaxTextTime = 0.02f;
@@ -44,6 +44,16 @@ public class DialogueManager : MonoBehaviour
     private const string END_TAG = "end";
 
     private DialogueVariables dialogueVariables;
+
+    public void LoadData(GameData data) {
+        Debug.Log("Loading from data manager");
+        dialogueVariables.LoadData(data);
+    }
+
+    public void SaveData(GameData data) {
+        Debug.Log("Saving from data manager");
+        dialogueVariables.SaveData(data);
+    }
 
     //initialise the instance
     private void Awake()
