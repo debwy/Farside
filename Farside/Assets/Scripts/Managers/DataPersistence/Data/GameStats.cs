@@ -4,21 +4,16 @@ using UnityEngine;
 
 public class GameStats : MonoBehaviour, IDataPersistence
 {
-
-    public int slimeDeaths;
-    public int golemDeaths;
-    public int batDeaths;
-    public int chestOpenCount;
+    private int slimeDeaths = 0;
+    private int golemDeaths = 0;
+    private int batDeaths = 0;
+    private int chestOpenCount = 0;
 
     void Start() {
         EventManager.instance.SlimeDeathEvent += AddSlimeDeathCount;
         EventManager.instance.GolemDeathEvent += AddGolemDeathCount;
         EventManager.instance.BatDeathEvent += AddBatDeathCount;
         EventManager.instance.ChestOpenEvent += AddChestOpenCount;
-        slimeDeaths = 0;
-        golemDeaths = 0;
-        batDeaths = 0;
-        chestOpenCount = 0;
     }
 
     void OnDisable() {
@@ -29,21 +24,23 @@ public class GameStats : MonoBehaviour, IDataPersistence
     }
 
     public void LoadData(GameData data) {
-        Debug.Log("Loading game stats");
-        Debug.Log(slimeDeaths);
         this.slimeDeaths = data.slimeDeaths;
         this.golemDeaths = data.golemDeaths;
         this.batDeaths = data.batDeaths;
         this.chestOpenCount = data.chestOpenCount;
+        //Debug.Log("Loading game stats");
+        //Debug.Log(this.slimeDeaths);
     }
 
     public void SaveData(GameData data) {
         Debug.Log("Saving game stats");
-        Debug.Log(slimeDeaths);
+        Debug.Log(this.slimeDeaths);
         data.slimeDeaths = this.slimeDeaths;
         data.golemDeaths = this.golemDeaths;
         data.batDeaths = this.batDeaths;
         data.chestOpenCount = this.chestOpenCount;
+        //Debug.Log("Finished Saving game stats");
+        //Debug.Log(this.slimeDeaths);
     }
 
     public int GetEnemyDeathCount() {
@@ -51,7 +48,9 @@ public class GameStats : MonoBehaviour, IDataPersistence
     }
 
     public void AddSlimeDeathCount() {
+        Debug.Log("Slime count updated");
         slimeDeaths++;
+        Debug.Log(slimeDeaths);
     }
 
     public void AddGolemDeathCount(int golemId) {

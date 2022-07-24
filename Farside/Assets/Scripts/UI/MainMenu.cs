@@ -63,6 +63,7 @@ public class MainMenu : Menu, IDataPersistence
     }
 
     public void LoadData(GameData data) {
+        //DataPersistenceManager.instance.isLoadedFromMenu = true;
         sceneToBeLoaded = data.lastSavedScene;
     }
 

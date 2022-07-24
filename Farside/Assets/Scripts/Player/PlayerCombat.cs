@@ -98,7 +98,7 @@ public class PlayerCombat : MonoBehaviour
 
     public void TakeDamage(int damage) {
         
-        if (currentHealth > 0) {
+        if (currentHealth > 0 && !player.isCurrentlyInDialogue) {
             currentHealth -= damage;
 
             player.healthbar.SetHealth(currentHealth);

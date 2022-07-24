@@ -102,16 +102,13 @@ public class Bat : MonoBehaviour, IEnemy
             isHitByRanged = false;
             lastAttack = Time.time;
             SetAggro(player);
-            Debug.Log("Atk0");
             StartCoroutine(AttackPart2());
         }
     }
 
     private IEnumerator AttackPart2() {
-        Debug.Log("Atk1");
         canMove = false;
         yield return new WaitForSeconds(0.1f);
-        Debug.Log("Atk2");
         canMove = true;
         isDiving = true;
         DiveTowards(aggroTarget);

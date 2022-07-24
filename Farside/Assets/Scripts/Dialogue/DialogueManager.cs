@@ -5,7 +5,7 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager : MonoBehaviour, IDataPersistence
 {
     //const string kAlphaCode = "<color=#00000000>";
     const float kMaxTextTime = 0.02f;
@@ -50,6 +50,17 @@ public class DialogueManager : MonoBehaviour
         dialogueVariables.SaveVariables();
     }
     */
+
+    public void LoadData(GameData data) {
+        //Debug.Log("Load data called from dialogue manager");
+        dialogueVariables = new DialogueVariables(loadGlobalsJSON, data);
+    }
+
+    public void SaveData(GameData data) {
+        //Debug.Log("Load data called from dialogue manager");
+        dialogueVariables.SaveData(data);
+    }
+
     //initialise the instance
     private void Awake()
     {
@@ -60,6 +71,7 @@ public class DialogueManager : MonoBehaviour
         instance = this;
 
         dialogueVariables = new DialogueVariables(loadGlobalsJSON);
+
     }
 
     public static DialogueManager GetInstance()
@@ -163,10 +175,11 @@ public class DialogueManager : MonoBehaviour
             switch (tagKey)
             {
                 case SAVE_TAG:
-                    Debug.Log("save=" + tagValue);
+                    //Debug.Log("save=" + tagValue);
                     //save the dialogue variables
                     //
-                    dialogueVariables.SaveVariables();
+                    //dialogueVariables.SaveVariables();
+                    //dialogueVariables.SaveData(DataPersistenceManager.instance.gameData);
                     DataPersistenceManager.instance.MenuSaveGame();
                     break;
                 case END_TAG:

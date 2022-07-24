@@ -16,6 +16,7 @@ public class PlayerMain : MonoBehaviour, IDataPersistence
     internal bool enableMovement;
     internal bool enableActions;
     internal bool enableDialogue;
+    internal bool isCurrentlyInDialogue;
 
     [SerializeField]
     internal Healthbar healthbar;
@@ -36,9 +37,11 @@ public class PlayerMain : MonoBehaviour, IDataPersistence
     {
         //added for freezing player movement when talking to NPC
         if (DialogueManager.GetInstance().dialogueIsPlaying) {
+            isCurrentlyInDialogue = true;
             ani.SetBool("Dialogue", true);
             return;
         } else {
+            isCurrentlyInDialogue = false;
             ani.SetBool("Dialogue", false);
         }
 
@@ -147,16 +150,17 @@ public class PlayerMain : MonoBehaviour, IDataPersistence
         if (DataPersistenceManager.instance.IsLoadedFromMenu()) {
             this.transform.position = data.playerPosition;
         } else {
-            Loader.PositionPlayer(data.lastSavedScene);
+            Loader.PositionPlayer(data.lastScene);
         }
     }
 
     public void SaveData(GameData data) {
         combat.Save(data);
-        data.lastSavedScene = Loader.CurrentSceneIndex();
+        data.lastScene = Loader.CurrentSceneIndex();
 
-        //should only be overriten at a campfire
         if (DataPersistenceManager.instance.IsSavedFromCheckpoint()) {
+            Debug.Log("Updating player position");
+            data.lastSavedScene = Loader.CurrentSceneIndex();
             data.playerPosition = this.transform.position;
         }
     }

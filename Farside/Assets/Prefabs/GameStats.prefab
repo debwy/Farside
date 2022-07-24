@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8816758774983288356}
   m_Layer: 0
   m_Name: GameStats
-  m_TagString: Untagged
+  m_TagString: Stats
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea13c878b9fdcd14abc8040fe2b04344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slimeDeaths: 0
-  golemDeaths: 0
-  batDeaths: 0
-  chestOpenCount: 0
+  slimeDeathManual: 0

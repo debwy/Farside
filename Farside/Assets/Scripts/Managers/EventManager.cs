@@ -23,22 +23,18 @@ public class EventManager : MonoBehaviour
     public event Action ChestOpenEvent;
 
     public void StartSlimeDeathEvent() {
-        Debug.Log("Invoking Event");
         SlimeDeathEvent?.Invoke();
     }
 
     public void StartGolemDeathEvent(int id) {
-        Debug.Log("Invoking Event");
         GolemDeathEvent?.Invoke(id);
     }
 
     public void StartBatDeathEvent() {
-        Debug.Log("Invoking Event");
         BatDeathEvent?.Invoke();
     }
 
     public void StartChestOpenEvent() {
-        Debug.Log("Invoking Event");
         ChestOpenEvent?.Invoke();
     }
 }

@@ -16,7 +16,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     private FileDataHandler dataHandler;
 
-    private GameData gameData;
+    public GameData gameData;
 
     private List<IDataPersistence> dataPersistenceObjects;
 
@@ -48,15 +48,15 @@ public class DataPersistenceManager : MonoBehaviour
         //Result would be null if data doesn't exist
         if (isLoadedFromMenu) {
             this.gameData = dataHandler.Load(mainProfileId);
-            Debug.Log("Main profile id");
+            //Debug.Log("Main profile id");
         } else {
             this.gameData = dataHandler.Load(tempProfileId);
-            Debug.Log("Temp profile id");
+            //Debug.Log("Temp profile id");
         }
 
         //If no data to load, don't continue
         if (this.gameData == null) {
-            Debug.Log("No data was found");
+            //Debug.Log("No data was found");
             return;
         }
 
@@ -64,6 +64,8 @@ public class DataPersistenceManager : MonoBehaviour
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects) {
             dataPersistenceObj.LoadData(gameData);
         }
+
+        SaveGame();
 
         isLoadedFromMenu = false;
     }

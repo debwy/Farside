@@ -35,7 +35,6 @@ public class NpcFacePlayer : MonoBehaviour
         if (isCheckingForPlayer) {
             if (hitObs.collider != null && !hitObs.collider.CompareTag("Player")) {
                 if(hitObsAlt.collider != null && hitObsAlt.collider.CompareTag("Player")) {
-                    Flip();
                 }
             }
         }
