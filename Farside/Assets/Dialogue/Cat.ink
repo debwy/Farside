@@ -1,4 +1,5 @@
 INCLUDE globals.ink
 
-Every time you speak to me, quest completion +1.
+Quest and chest completion +1.
 ~ helped_global +=1
+~ chestOpenCount_global += 1

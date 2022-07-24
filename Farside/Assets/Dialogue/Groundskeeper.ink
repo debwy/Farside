@@ -24,6 +24,8 @@ Ruff, ask me anything about 'em. I'm the best dog for the job.
        
     * [I'm good]
         All right, take care out there! Let me know if you need a paw or two.
+        After you're done checking out this place, you should go to our village outpost! 
+        Take the moving platform above me to get there.
         -> DONE
       
      

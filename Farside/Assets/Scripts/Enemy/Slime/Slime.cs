@@ -101,7 +101,6 @@ public class Slime : MonoBehaviour, IEnemy
         died = true;
         canContact = false;
         EventManager.instance.StartSlimeDeathEvent();
-
         body.velocity = Vector2.zero;
         body.angularVelocity = 0;
 

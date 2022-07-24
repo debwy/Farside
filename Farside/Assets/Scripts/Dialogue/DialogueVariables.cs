@@ -10,7 +10,6 @@ public class DialogueVariables
     public Story globalVariablesStory;
     private const string saveVariablesKey = "INK_VARIABLES";
 
-
     public void SaveData(GameData data) {
         //Debug.Log("Save data called from dialogue var");
         if (globalVariablesStory != null) {

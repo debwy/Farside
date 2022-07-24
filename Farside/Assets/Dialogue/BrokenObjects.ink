@@ -3,10 +3,10 @@ INCLUDE globals.ink
 {brokenobjects_global:
 - 0: Well, well, human...
 You haven't broken any barrels.
-Plenty of loot for me, then! I'll get those barrels before you do.
+Plenty of loot for <b>me</b>, then! I'll get those barrels before you do.
 
-- 1: Well, human. You've caught on to my way of life.
-There's good loot hiding in those barrels. Didja see the apples? But don't take too many, leave some for me!
+- 1: Well, human. You've caught on to my way of life. I see you're breaking barrels too!
+There's good loot hiding in them. But not <i>quite</i> enough to go around. You'd better not take too many and leave some for me!
 
 - 2: So you've broken two barrels. 
 Seems like you're going to be competition. But I'll always be faster, nyehehe.

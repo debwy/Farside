@@ -37,7 +37,7 @@ Squeak... I always stay here and hide. No, I'm not eavesdropping or anything!
 <size=35>Oh, you're still here? I was thinking that getting rid of <color=yellow>2 enemies of any type</color> would be great!</size>
 <size=35>I might even get you that recommendation if you complete this favour.</size>
 
-{ totalDeaths >= 2: -> completed }
+{ totalDeaths_global >= 2: -> completed }
 
 -> END
 
