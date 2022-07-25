@@ -41,7 +41,7 @@ But don't count your crows before they've hatched!
 This is certainly a testament to your abilities and perseverance. 
 I hope you enjoyed helping out our townsfolk as much as I enjoyed seeing you complete their quests!
 I'll see to it that you get a village permit right away. 
-<color=red><i>Once again, a warm welcome to our village of Farside...</i></color> #end:yes
+<i>Once again, a warm welcome to our village of Farside...</i> #end:yes
 }
 
 -> END

@@ -23,6 +23,7 @@ u-um...just leave! please! go!
 === favour ===
 ~ helped_global += 1 //assigns chosen purpose into globals.ink
 a-a favour? just say it! say it already!
+you...you actually want to enter t-the village? um...
 o-ok, ok, i got it, ill give you ten recommendations or anything you need, just go!!!
 <size=35>except i dont think they will count it as ten...but you know...ill try...</size>
 -> END
