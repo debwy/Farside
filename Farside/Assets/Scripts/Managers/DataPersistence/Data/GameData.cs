@@ -21,6 +21,7 @@ public class GameData
     public int lastScene;
     public int slimeDeaths;
     public int golemDeaths;
+    public int dogQuestGolemDeaths;
     public int batDeaths;
     public SerializableDictionary<string, bool> chestsOpened;
     public int chestOpenCount;
@@ -38,6 +39,7 @@ public class GameData
         lastScene = (int) Loader.Scenes.Map1;
         slimeDeaths = 0;
         golemDeaths = 0;
+        dogQuestGolemDeaths = 0;
         batDeaths = 0;
         chestsOpened = new SerializableDictionary<string, bool>();
         chestOpenCount = 0;

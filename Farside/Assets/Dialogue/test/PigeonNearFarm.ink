@@ -21,6 +21,12 @@ How did you get up here!?
      ......
      that does makes sense...
      -> DONE
+     
+   
+ * [I swam up here]
+     Same here!
+     Takes a lot of work, doesn't it...
+     -> DONE
     
  * ->
 

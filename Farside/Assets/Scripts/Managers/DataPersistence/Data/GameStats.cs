@@ -6,6 +6,7 @@ public class GameStats : MonoBehaviour, IDataPersistence
 {
     public int slimeDeaths = 0;
     public int golemDeaths = 0;
+    public int dogQuestGolemDeaths = 0;
     public int batDeaths = 0;
     public int chestOpenCount = 0;
     public int totalDeaths = 0;
@@ -66,6 +67,7 @@ public class GameStats : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data) {
         this.slimeDeaths = data.slimeDeaths;
         this.golemDeaths = data.golemDeaths;
+        this.dogQuestGolemDeaths = data.dogQuestGolemDeaths;
         this.batDeaths = data.batDeaths;
         this.chestOpenCount = data.chestOpenCount;
         //Debug.Log("Loading game stats");
@@ -77,6 +79,7 @@ public class GameStats : MonoBehaviour, IDataPersistence
         Debug.Log(this.slimeDeaths);
         data.slimeDeaths = this.slimeDeaths;
         data.golemDeaths = this.golemDeaths;
+        data.dogQuestGolemDeaths = this.dogQuestGolemDeaths;
         data.batDeaths = this.batDeaths;
         data.chestOpenCount = this.chestOpenCount;
         //Debug.Log("Finished Saving game stats");
@@ -95,6 +98,9 @@ public class GameStats : MonoBehaviour, IDataPersistence
 
     public void AddGolemDeathCount(int golemId) {
         golemDeaths++;
+        if (golemId == 0) {
+            dogQuestGolemDeaths++;
+        }
     }
 
     public void AddBatDeathCount() {

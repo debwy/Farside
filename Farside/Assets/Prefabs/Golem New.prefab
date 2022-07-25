@@ -222,8 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3827de6bc00dc5146b464b1be34323d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  golemId: 0
   speed: 6
-  maxHealth: 200
+  maxHealth: 250
   attackDamage: 30
   isFacingRight: 1
   healthbar: {fileID: 6770069724823469693}
