@@ -35,7 +35,6 @@ public class ShakyPlatform : MonoBehaviour
         }
 
         if (activated && Time.time >= playerStandTime + timeBeforeDrop) {
-            Debug.Log("Going down");
             transform.position = Vector3.MoveTowards(transform.position, transform.position-Vector3.up, dropSpeed);
             //body.bodyType = RigidbodyType2D.Dynamic;
         }
@@ -45,7 +44,6 @@ public class ShakyPlatform : MonoBehaviour
     }
 
     void RespawnPlatform() {
-        Debug.Log("Rspwn");
         ani.SetBool("Dropping", false);
         body.bodyType = RigidbodyType2D.Static;
         transform.position = new Vector3(initialPositionx, initialPositiony, 0);
@@ -55,7 +53,6 @@ public class ShakyPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D hit) {
         if(hit.gameObject.CompareTag("Player") || hit.gameObject.CompareTag("Enemy")) {
-            Debug.Log("Player sensed");
             activated = true;
             if (playerStandTime == -1) {
                 playerStandTime = Time.time;

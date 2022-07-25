@@ -184,10 +184,9 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
                     break;
                 case END_TAG:
                     Debug.Log("game has ended:" + tagValue);
-
                     //input scene transition to Closing
-
-
+                    DataPersistenceManager.instance.MenuSaveGame();
+                    Loader.LoadScene(Loader.Scenes.Closing);
                     break;
                 default:
                     Debug.LogWarning("Tag came in: " + tag);

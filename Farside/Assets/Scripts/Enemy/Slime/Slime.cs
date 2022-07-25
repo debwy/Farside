@@ -101,8 +101,10 @@ public class Slime : MonoBehaviour, IEnemy
         died = true;
         canContact = false;
         EventManager.instance.StartSlimeDeathEvent();
-        body.velocity = Vector2.zero;
-        body.angularVelocity = 0;
+        if (body.bodyType != RigidbodyType2D.Static) {
+                body.velocity = Vector2.zero;
+                body.angularVelocity = 0;
+        }
 
         //play die animation
         ani.SetBool("Died", true);

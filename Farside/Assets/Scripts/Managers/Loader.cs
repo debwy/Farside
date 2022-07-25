@@ -11,7 +11,8 @@ public static class Loader
         MainMenu,
         Opening,
         Map1,
-        Map1a
+        Map1a,
+        Closing
     }
 
     public static void LoadScene(Scenes scene) {

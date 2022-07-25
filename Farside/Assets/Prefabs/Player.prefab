@@ -299,7 +299,7 @@ MonoBehaviour:
   material: {fileID: 6200000, guid: b8f5d5a726ba3a044b2c0a16d88d673e, type: 2}
   moveSpeed: 1.4
   slopeSpeed: 2.4
-  jumpForce: 35
+  jumpForce: 32
   dashTime: 0.005
   dashSpeed: 35
   distanceBetweenImages: 0.1
