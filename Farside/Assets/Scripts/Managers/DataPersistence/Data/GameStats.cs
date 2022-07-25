@@ -31,6 +31,10 @@ public class GameStats : MonoBehaviour, IDataPersistence
         totalDeaths = slimeDeaths + golemDeaths + batDeaths;
         Ink.Runtime.Object total = new Ink.Runtime.IntValue(totalDeaths);
         DialogueManager.GetInstance().SetVariableState("totalDeaths_global", total);
+
+        //specific golem quest
+        Ink.Runtime.Object golemQuest = new Ink.Runtime.IntValue(dogQuestGolemDeaths);
+        DialogueManager.GetInstance().SetVariableState("specificgolem", golemQuest);
     }
 
     void snapshotBatQuest() {//call at quest start

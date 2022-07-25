@@ -19,8 +19,8 @@ Wow geez, are you lost?
      -> choices3
 
 === choices2 ===
-* [Did you get here after listening to that really cryptic bird as well?]
-    Oh that pigeon
+* [How did you get here?]
+    So you're asking if I came here after listening to that really cryptic bird as well
     Sad to say but you've come the wrong way
     I know the answer but spilling the beans like this isn't any fun, y'know
     Good luck out there!
@@ -38,7 +38,7 @@ Wow geez, are you lost?
     Aw that makes me happy
     Unfortunately though I've been exiled from the town ages ago
     So even though you have the face of someone reeeeally wanting a recommendation
-    Sad to say I can't give you one ¯\_(ツ)_/¯
+    Sad to say I can't give you one ;(((
     -> choices4
     
     * [Nah]
@@ -48,7 +48,7 @@ Wow geez, are you lost?
 === choices4 ===
     * [Wait... why?]
         Well, sad to say but other bats probably aren't as friendly as I am
-        Y'see, their actions got as all chased out of the village (sigh)
+        //Y'see, their actions got us all chased out of the village (sigh)
         Well if you don't know what I'm talking about that's great
         Though you probably encountered a number of them on the way here...
         -> choices4

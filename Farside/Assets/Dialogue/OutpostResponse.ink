@@ -26,18 +26,20 @@ Squeak... I always stay here and hide. No, I'm not eavesdropping or anything!
 - <size=35>Oh, ok... </size>
 ~ brownmouse = 1
 <size=35>Actually, I have a favour to ask? Even though you're a {purpose_global} and all?</size>
-<size=35>Just figured asking an outsider would be easier, you know?</size>
+<size=35>Just figured asking someone who looks strong would be easier, you know?</size>
 <size=35>If you're willing, could you help me defeat some enemies?</size>
-<size=35>I don't know how many would be good, though.  Maybe <color=yellow>2 enemies of any type</color> would be great for a start!</size>
+<size=35>I don't know how many would be good, though.  Maybe <color=yellow>15 enemies of any type</color> would be great for a start!</size>
+<size=35>I might even get you that recommendation if you complete this favour.</size>
+<size=35>If you're worried about running out of enemies, don't worry!</size>
+<size=35>They all return once you come back to the map. What a pain, right?</size>
 
 -> END
 
 === already_accepted ===
 <size=35><i>She looks amazing as always...so strong...but I wish she would relax a little...</i>
-<size=35>Oh, you're still here? I was thinking that getting rid of <color=yellow>2 enemies of any type</color> would be great!</size>
-<size=35>I might even get you that recommendation if you complete this favour.</size>
+<size=35>Oh, you're still here? I was thinking that getting rid of <color=yellow>15 enemies of any type</color> would be great!</size>
 
-{ totalDeaths_global >= 2: -> completed }
+{ totalDeaths_global >= 15: -> completed }
 
 -> END
 

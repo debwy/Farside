@@ -30,6 +30,7 @@ VAR dog = 0
 
 //quest 5 - Groundskeeper
 VAR groundskeeper = 0
+VAR specificgolem = 0
 
 //=== random npcs ===//
 VAR outpost_guard = 0

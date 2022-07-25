@@ -32,13 +32,13 @@ Anything else?
  -> questions
  
  + [That's all]
- Sure thing. Just a question - did you <i>really</i> tell the head guard you are a {purpose_global}?
+ Sure thing. 
 
 -> END
 
 === talked ===
 Our outpost isn't fancy, but it is something.
-Do you have any other questions about this place, human {purpose_global}?
+Do you have any other questions about this place?
 
 -> questions
 
