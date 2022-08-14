@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Afterimage : MonoBehaviour
 {
-    // youtube.com/watch?v=ylsWcc4IP3E
     //implements dash & afterimage (utilises pooling)
 
     [SerializeField]

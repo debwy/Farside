@@ -5,8 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
-    //https://www.youtube.com/watch?v=aUi9aijvpgs&t=51s
-
     /*
     The values defined in this constructor will be the default values the game starts
     with when there's no data to load
