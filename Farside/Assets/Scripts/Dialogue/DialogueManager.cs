@@ -12,7 +12,6 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
     public static int TextSpeed = 2;
 
     [Header("Params")]
-    //[SerializeField] private float typingSpeed = 0.001f;
 
     [Header("Load Globals JSON")]
     [SerializeField] private TextAsset loadGlobalsJSON;
@@ -43,13 +42,6 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
     private const string END_TAG = "end";
 
     private DialogueVariables dialogueVariables;
-
-    //save on quit
-    /*public void OnApplicationQuit()
-    {
-        dialogueVariables.SaveVariables();
-    }
-    */
 
     public void LoadData(GameData data) {
         //Debug.Log("Load data called from dialogue manager");
@@ -121,9 +113,6 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
         //monitor dialogue variable changes
         dialogueVariables.StartListening(currentStory);
 
-        //play sound: click
-        //FindObjectOfType<AudioManager>().Play("DialogueClick");
-
         ContinueStory();
     }
 
@@ -175,11 +164,6 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
             switch (tagKey)
             {
                 case SAVE_TAG:
-                    //Debug.Log("save=" + tagValue);
-                    //save the dialogue variables
-                    //
-                    //dialogueVariables.SaveVariables();
-                    //dialogueVariables.SaveData(DataPersistenceManager.instance.gameData);
                     DataPersistenceManager.instance.MenuSaveGame();
                     break;
                 case END_TAG:
